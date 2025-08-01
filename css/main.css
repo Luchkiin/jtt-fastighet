@@ -512,7 +512,7 @@ button.btn.btn-medium {
 }
 .container__hero .hero-image {
   flex: 1;
-  background-image: url("../../images/hero/hero-large-portrait.jpg");
+  background-image: url("../images/hero/hero-large-portrait.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -524,7 +524,7 @@ button.btn.btn-medium {
 }
 @media only screen and (max-width: 1439px) {
   .container__hero .hero-image {
-    background-image: url("../../images/hero/hero-large-landscape.jpg");
+    background-image: url("../images/hero/hero-large-landscape.jpg");
     position: relative;
     width: 100%;
     max-width: none;
@@ -537,7 +537,7 @@ button.btn.btn-medium {
 }
 @media only screen and (max-width: 768px) {
   .container__hero .hero-image {
-    background-image: url("../../images/hero/hero-small-portrait.jpg");
+    background-image: url("../images/hero/hero-small-portrait.jpg");
     background-position: center top;
     min-height: calc(100vh - 88px);
     margin-bottom: 24px;
