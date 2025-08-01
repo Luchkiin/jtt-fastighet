@@ -1,0 +1,606 @@
+@use "../abstracts/" as *;
+
+// Hero
+.container__hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-xxxl;
+  padding: 0 $spacing-xl;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include for-tablet() {
+    padding: 0 $spacing-s;
+  }
+  @include for-mobile() {
+    padding: 0 $spacing-xs;
+  }
+  .copy-cta {
+    flex: 1;
+    max-width: 600px;
+    @include for-hero-laptop() {
+      position: absolute;
+      left: $spacing-xxxl;
+      bottom: $spacing-xxxl;
+      background-color: $white;
+      padding: $spacing-m;
+      border-radius: $border-radius-xl;
+      z-index: 2;
+      max-width: 664px;
+      .h1-hero {
+        font-size: $fontSize-48;
+        font-weight: $semiBold-weight;
+        line-height: $lineHeight-62;
+        letter-spacing: $letterSpacing--0064;
+      }
+    }
+    @include for-tablet() {
+      padding: $spacing-s;
+      max-width: 500px;
+      left: $spacing-xl;
+      bottom: 72px;
+      .h1-hero {
+        @include for-tablet() {
+          font-size: $fontSize-38;
+          font-weight: $semiBold-weight;
+          line-height: $lineHeight-46;
+          letter-spacing: $letterSpacing--0064;
+        }
+      }
+    }
+    @include for-mobile() {
+      max-width: calc(100vw - 32px);
+      left: $spacing-xs;
+      bottom: $spacing-s;
+      padding-left: $spacing-s;
+      padding-right: $spacing-s;
+      padding-bottom: 0;
+      border-top-left-radius: $border-radius-xxl;
+      border-top-right-radius: $border-radius-xxl;
+      .h1-hero {
+        @include for-mobile() {
+          font-size: $fontSize-26;
+          font-weight: $semiBold-weight;
+          letter-spacing: $letterSpacing--0064;
+          line-height: normal;
+        }
+      }
+    }
+    .text {
+      padding-bottom: $spacing-xl;
+      @include for-hero-laptop() {
+        padding-bottom: $spacing-m;
+      }
+      @include for-tablet() {
+        p {
+          font-size: $fontSize-16;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+          letter-spacing: $letterSpacing--005;
+        }
+      }
+      @include for-mobile() {
+        p {
+          font-size: $fontSize-14;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+          letter-spacing: $letterSpacing--005;
+        }
+      }
+    }
+  }
+  .hero-image {
+    flex: 1;
+    background-image: url("../../images/hero/hero-large-portrait.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    min-height: calc(
+      100vh - 149px
+    ); // Height of header (101px) and margin bottom (48px)
+    max-width: 900px;
+    border-radius: $border-radius-xl;
+    margin-bottom: $spacing-xl;
+    @include for-hero-laptop() {
+      background-image: url("../../images/hero/hero-large-landscape.jpg");
+      position: relative;
+      width: 100%;
+      max-width: none;
+    }
+    @include for-tablet() {
+      min-height: calc(
+        100vh - 133px
+      ); // Height of header (85px) and margin bottom (48px)
+    }
+    @include for-mobile() {
+      background-image: url("../../images/hero/hero-small-portrait.jpg");
+      background-position: center top;
+      min-height: calc(
+        100vh - 88px
+      ); // Height of header (62px) and margin bottom (24px)
+      margin-bottom: $spacing-s;
+    }
+  }
+}
+
+// About
+.container__about {
+  background-color: $bg-light;
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    @include for-tablet() {
+      gap: $spacing-m;
+    }
+    @include for-mobile() {
+      gap: $spacing-s;
+    }
+    .title-text-wrapper {
+      display: flex;
+      align-items: start;
+      gap: $spacing-xxxl;
+      justify-content: space-between;
+      width: 100%;
+      @include for-desktop() {
+        flex-direction: column;
+        gap: $spacing-m;
+      }
+      @include for-mobile() {
+        gap: $spacing-s;
+      }
+      .title {
+        width: 600px;
+        @include for-mobile() {
+          width: 100%;
+        }
+      }
+      .text {
+        width: 680px;
+        @include for-desktop() {
+          width: 750px;
+        }
+        @include for-small-tablet() {
+          width: 100%;
+        }
+        p {
+          color: $neutral-grey-950;
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            letter-spacing: $letterSpacing--005;
+          }
+        }
+      }
+    }
+    .images {
+      display: flex;
+      width: 100%;
+      gap: $spacing-s;
+      @include for-tablet() {
+        flex: none;
+        display: grid;
+        grid-template-rows: repeat(1, minmax(0, 1fr));
+        grid-auto-rows: minmax(0, 1fr);
+        gap: $spacing-xs;
+        height: 408px;
+        ustify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+      @include for-mobile() {
+        height: 250px;
+        gap: $spacing-xxs;
+      }
+      @include for-tablet() {
+        .image {
+          position: relative;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+          &:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+          }
+          &:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+          }
+          &:nth-child(3) {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+          }
+        }
+      }
+      img {
+        border-radius: $border-radius-xl;
+      }
+    }
+  }
+}
+
+// Services
+.container__services {
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    @include for-mobile() {
+      gap: $spacing-m;
+    }
+    .title-text-wrapper {
+      display: flex;
+      align-items: end;
+      gap: $spacing-xxxl;
+      justify-content: space-between;
+      width: 100%;
+      @include for-desktop() {
+        flex-direction: column;
+        align-items: start;
+        gap: $spacing-m;
+      }
+      @include for-mobile() {
+        gap: $spacing-s;
+      }
+      .title {
+        max-width: 600px;
+        @include for-mobile() {
+          width: 100%;
+        }
+      }
+      .text {
+        max-width: 680px;
+        @include for-desktop() {
+          max-width: 750px;
+        }
+        @include for-small-tablet() {
+          width: 100%;
+        }
+        p {
+          color: $black;
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            letter-spacing: $letterSpacing--005;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Why us?
+.container__why-us {
+  @include for-tablet() {
+    padding-top: 0;
+  }
+  .inner-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-xxxl;
+    @include for-desktop() {
+      gap: $spacing-xl;
+    }
+    @include for-laptop() {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    @include for-tablet() {
+      gap: $spacing-l;
+    }
+    @include for-mobile() {
+      gap: $spacing-m;
+    }
+    .title-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+      width: 100%;
+      @include for-mobile() {
+        gap: $spacing-s;
+      }
+      .title-text {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-m;
+        width: 100%;
+        @include for-mobile() {
+          gap: $spacing-s;
+        }
+        .title {
+          max-width: 600px;
+          @include for-mobile() {
+            width: 100%;
+          }
+        }
+        .text {
+          @include for-laptop() {
+            width: 750px;
+          }
+          @include for-small-tablet() {
+            width: 100%;
+          }
+          p {
+            @include for-tablet() {
+              font-size: $fontSize-16;
+              font-weight: $regular-weight;
+              line-height: $lineHeight-21;
+              letter-spacing: $letterSpacing--005;
+            }
+          }
+        }
+      }
+      .subititle-text-button {
+        width: 100%;
+        @include for-laptop() {
+          width: 750px;
+          display: none;
+        }
+        .subtitle {
+          margin-bottom: $spacing-s;
+        }
+        .text {
+          margin-bottom: $spacing-m;
+        }
+      }
+    }
+    .subititle-text-button.last-element {
+      display: none;
+      width: 100%;
+      @include for-laptop() {
+        display: block;
+        width: 750px;
+      }
+      @include for-small-tablet() {
+        width: 100%;
+      }
+      .subtitle {
+        margin-bottom: $spacing-s;
+      }
+      .text {
+        margin-bottom: $spacing-m;
+        @include for-mobile() {
+          margin-bottom: $spacing-s;
+        }
+        p {
+          @include for-tablet() {
+            display: block;
+            font-size: $fontSize-16;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            letter-spacing: $letterSpacing--005;
+          }
+        }
+      }
+    }
+  }
+}
+
+// FAQ
+.container__faq {
+  background-color: $bg-light;
+  .inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-xxxl;
+    @include for-desktop() {
+      gap: $spacing-xl;
+    }
+    @include for-small-laptop() {
+      flex-direction: column;
+    }
+    @include for-tablet() {
+      gap: $spacing-l;
+    }
+    .title-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+      max-width: 680px;
+      width: 100%;
+
+      .title-text {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-m;
+        width: 100%;
+        @include for-mobile() {
+          gap: $spacing-s;
+        }
+        .title {
+          max-width: 600px;
+        }
+        .text {
+          p {
+            color: $neutral-grey-950;
+            @include for-tablet() {
+              font-size: $fontSize-16;
+              font-weight: $regular-weight;
+              line-height: $lineHeight-21;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Contact
+.container__contact {
+  background-color: $bg-dark;
+  .inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-xxxl;
+    @include for-desktop() {
+      gap: $spacing-xl;
+    }
+    @include for-laptop() {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    @include for-mobile() {
+      gap: $spacing-m;
+    }
+    .contact-info {
+      display: flex;
+      gap: $spacing-xl;
+      flex-direction: column;
+      @include for-tablet() {
+        gap: $spacing-l;
+      }
+      @include for-mobile() {
+        gap: $spacing-m;
+      }
+      .title-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+        max-width: 680px;
+        width: 100%;
+        @include for-mobile() {
+          gap: $spacing-s;
+        }
+        .title-text {
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-m;
+          width: 100%;
+          @include for-mobile() {
+            gap: $spacing-s;
+          }
+          .title {
+            max-width: 600px;
+            h2 {
+              color: $white;
+            }
+          }
+          .text {
+            @include for-laptop() {
+              width: 750px;
+            }
+            @include for-small-tablet() {
+              width: 100%;
+            }
+            p {
+              color: $grey;
+              @include for-tablet() {
+                font-size: $fontSize-16;
+                font-weight: $regular-weight;
+                line-height: $lineHeight-21;
+              }
+            }
+          }
+        }
+      }
+      .contact-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px $spacing-xxxl;
+        padding-bottom: $spacing-xl;
+        border-bottom: 1px solid $dark-grey;
+        @include for-tablet() {
+          gap: $spacing-xs $spacing-xl;
+          padding-bottom: $spacing-l;
+        }
+        @include for-mobile() {
+          padding-bottom: $spacing-m;
+        }
+        .contact-info__location,
+        .contact-info__email,
+        .contact-info__phone-number {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @include for-mobile() {
+            flex-direction: column;
+            align-items: start;
+            gap: $spacing-xxs;
+          }
+        }
+        h3 {
+          color: $white;
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            font-weight: $semiBold-weight;
+          }
+        }
+        p {
+          color: $grey;
+          position: relative;
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: $grey;
+          }
+          &:before {
+            opacity: 0;
+            transform: translateY(-$menu-link-distance);
+            transition: transform 0s $cubic-bezier, opacity 0s;
+          }
+          &:after {
+            opacity: 0;
+            transform: calc($menu-link-distance / 2);
+            transition: transform $menu-link-duration $cubic-bezier,
+              opacity $menu-link-duration;
+          }
+          &:hover,
+          &:focus {
+            &:before,
+            &:after {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            &:before {
+              transition: transform $menu-link-duration $cubic-bezier,
+                opacity $menu-link-duration;
+            }
+            &:after {
+              transition: transform 0s $menu-link-duration $cubic-bezier,
+                opacity 0s $menu-link-duration;
+            }
+          }
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+          }
+        }
+      }
+      .socail-media-info {
+        h4 {
+          color: $white;
+          margin-bottom: $spacing-s;
+          @include for-mobile() {
+            font-size: $fontSize-20;
+            font-weight: $semiBold-weight;
+            margin-bottom: $spacing-xs;
+          }
+        }
+        .social-media-icon {
+          display: flex;
+          @include for-mobile() {
+            width: 36px;
+            height: 36px;
+            svg {
+              width: 36px;
+              height: 36px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@use "../abstracts/" as *;
+
+.footer {
+  background-color: $secondary-blue-100;
+  padding: $spacing-xxxl 0;
+  color: $black;
+  @include for-tablet() {
+    padding: $spacing-xxl 0;
+  }
+  @include for-mobile() {
+    padding: $spacing-xl 0;
+  }
+  .inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    @include for-desktop() {
+      padding: 0 $spacing-xl;
+    }
+    @include for-mobile() {
+      padding: 0 $spacing-s;
+      flex-direction: column;
+      gap: $spacing-m;
+    }
+    .footer_logo-copyright {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .footer__logo {
+        width: 100px;
+        transition: $transition-250;
+        @include hover-supported() {
+          opacity: 0.75;
+        }
+      }
+      #copyright {
+        font-size: $fontSize-14;
+        font-weight: $regular-weight;
+        letter-spacing: $letterSpacing--005;
+        line-height: initial;
+        @include for-mobile() {
+          display: none;
+        }
+      }
+    }
+  }
+  .shortcuts {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-l;
+    @include for-tablet() {
+      gap: $spacing-s;
+    }
+    @include for-mobile() {
+      padding-bottom: $spacing-m;
+      border-bottom: 1px solid #00000010;
+    }
+    h2 {
+      @include for-tablet() {
+        font-size: $fontSize-26;
+        font-weight: $semiBold-weight;
+      }
+    }
+    .shortcut-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: $spacing-xxxl;
+      @include for-mobile() {
+        grid-template-columns: 1fr;
+      }
+      .shortcut-link {
+        padding: 10px 0;
+        position: relative;
+        &:nth-child(1) {
+          padding-top: 0;
+        }
+        &:nth-child(2) {
+          padding-top: 0;
+          @include for-mobile() {
+            padding-top: 10px;
+          }
+        }
+        &:nth-child(5) {
+          padding-bottom: 0;
+          @include for-mobile() {
+            padding-bottom: 10px;
+          }
+        }
+        &:nth-child(6) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  #copyright-mobile {
+    display: none;
+    font-size: $fontSize-14;
+    font-weight: $regular-weight;
+    letter-spacing: $letterSpacing--005;
+    line-height: initial;
+    @include for-mobile() {
+      display: block;
+    }
+  }
+}

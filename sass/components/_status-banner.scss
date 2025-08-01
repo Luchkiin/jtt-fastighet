@@ -1,0 +1,59 @@
+@use "../abstracts/" as *;
+
+#status-banner {
+    display: none; // Kommentera bort denna rad för att visa statusmeddelandet
+}
+
+.status-banner {
+    position: relative;
+    background-color: $warning;
+    color: $black;
+    padding: 10px $spacing-xl;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-xl;
+    width: 100%;
+    transition: transform 300ms ease, opacity 300ms ease;
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: 1002;
+    @include for-tablet() {
+        gap: $spacing-s;
+        padding: 10px $spacing-s;
+      }
+      @include for-mobile() {
+        gap: $spacing-s;
+        padding: 10px $spacing-xs;
+      }
+    .status-text {
+      margin: 0;
+      flex: 1;
+      font-size: $fontSize-16;
+      font-weight: $regular-weight;
+      line-height: $lineHeight-21;
+      letter-spacing: $letterSpacing--005;
+      @include for-mobile() {
+        font-size: $fontSize-14;
+      }
+    }
+  
+    .status-close {
+      background: none;
+      border: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+    &.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+  
+    &.hidden {
+      transform: translateY(-100%);
+      opacity: 1;
+    }
+  }

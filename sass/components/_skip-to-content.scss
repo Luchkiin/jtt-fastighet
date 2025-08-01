@@ -1,0 +1,36 @@
+@use "../abstracts/" as *;
+
+.skip-to-content-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  font-size: $fontSize-14;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing-025;
+  background-color: $bg-dark;
+  color: $white;
+  padding: $spacing-xxs 12px ;
+  z-index: 1003;
+  border-radius: 36px;
+  transition: transform 0.3s ease;
+
+  &:focus {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    transform: translateY(0);
+    background: $bg-dark;
+    color: $white;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+    border-radius: 36px;
+    padding: $spacing-xxs 12px;
+
+  }
+}
+
+main:focus {
+    outline: none;
+  }

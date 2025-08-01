@@ -1,0 +1,67 @@
+@use "../abstracts/" as *;
+
+.usps {
+  display: flex;
+  gap: $spacing-xxxl;
+  margin-top: $spacing-s;
+  @include for-laptop() {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl $spacing-xxxl;
+  }
+  @include for-tablet() {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-m $spacing-xxxl;
+  }
+  @include for-mobile() {
+    grid-template-columns: 1fr;
+    gap: $spacing-s;
+  }
+  .usp {
+    width: 100%;
+    @include for-laptop() {
+      width: 300px;
+    }
+    @include for-mobile() {
+      width: 100%;
+    }
+    .title-number {
+      h3 {
+        font-size: $fontSize-58;
+        font-weight: $regular-weight;
+        letter-spacing: $letterSpacing-2;
+        margin-bottom: $spacing-xs;
+        @include for-mobile() {
+          font-size: $fontSize-48;
+          font-weight: $regular-weight;
+          letter-spacing: $letterSpacing-2;
+          margin-bottom: 12px;
+        }
+      }
+    }
+    .subtitle {
+      h4 {
+        font-size: $fontSize-20;
+        font-weight: $semiBold-weight;
+        letter-spacing: $letterSpacing--0064;
+        margin-bottom: $spacing-xxs;
+        @include for-mobile() {
+          font-size: $fontSize-20;
+          font-weight: $semiBold-weight;
+          letter-spacing: $letterSpacing--0064;
+          margin-bottom: $spacing-xxs;
+        }
+      }
+    }
+    .text {
+      p {
+        font-size: $fontSize-16;
+        font-weight: $regular-weight;
+        line-height: $lineHeight-21;
+        letter-spacing: $letterSpacing--005;
+        color: $neutral-grey-950;
+      }
+    }
+  }
+}

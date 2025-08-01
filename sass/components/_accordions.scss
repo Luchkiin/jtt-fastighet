@@ -1,0 +1,292 @@
+@use "../abstracts/" as *;
+
+// Accordion with images
+.accordions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xxxl;
+  @include for-desktop() {
+    gap: $spacing-xl;
+  }
+  @include for-small-laptop() {
+    flex-direction: column;
+  }
+  @include for-tablet() {
+    gap: $spacing-l;
+  }
+  @include for-mobile() {
+    gap: $spacing-m;
+  }
+  .accordions-wrapper {
+    width: 100%;
+    .accordion {
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid $grey;
+      .accordion_title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $spacing-xl;
+        position: relative;
+        padding: $spacing-s 0;
+        @include for-laptop() {
+          gap: $spacing-s;
+        }
+        @include for-mobile() {
+          padding: 20px 0;
+        }
+        cursor: pointer;
+        h3 {
+          color: $black;
+          font-size: $fontSize-26;
+          font-weight: $semiBold-weight;
+          letter-spacing: $letterSpacing--0064;
+          @include for-mobile() {
+            font-size: $fontSize-16;
+            font-weight: $semiBold-weight;
+            letter-spacing: $letterSpacing--0064;
+          }
+        }
+        .icon {
+          transform: rotate(0);
+          transition: $transition-500;
+          height: 36px;
+          width: 36px;
+          @include for-mobile() {
+            height: 30px;
+            width: 30px;
+            svg {
+              height: 30px;
+              width: 30px;
+            }
+          }
+        }
+      }
+      .accordion_content {
+        color: $black;
+        max-height: 0;
+        overflow: hidden;
+        will-change: max-height;
+        transition: $transition-500;
+        opacity: 0;
+      }
+      &:first-child {
+        .accordion_title {
+          padding-top: 0;
+        }
+      }
+    }
+    .accordion_active {
+      border-bottom: 1px solid $grey;
+      padding-bottom: $spacing-s;
+      @include for-mobile() {
+        padding-bottom: 20px;
+      }
+      .accordion_title {
+        @include for-tablet() {
+          padding-bottom: $spacing-xs;
+        }
+        .icon {
+          transform: rotate(180deg);
+          transition: transform 500ms;
+          height: 36px;
+          width: 36px;
+          @include for-mobile() {
+            height: 30px;
+            width: 30px;
+            svg {
+              height: 30px;
+              width: 30px;
+            }
+          }
+        }
+      }
+      .accordion_content {
+        padding: 0;
+        opacity: 1;
+      }
+    }
+    p {
+      color: $black;
+      font-size: $fontSize-20;
+      font-weight: $regular-weight;
+      line-height: $lineHeight-29;
+      letter-spacing: $letterSpacing--005;
+      margin: 0;
+      @include for-small-laptop() {
+        width: 750px;
+      }
+      @include for-tablet() {
+        font-size: $fontSize-16;
+        font-weight: $regular-weight;
+        line-height: $lineHeight-21;
+      }
+      @include for-small-tablet() {
+        width: 100%;
+      }
+      @include for-mobile() {
+        font-size: $fontSize-14;
+        font-weight: $regular-weight;
+        line-height: $lineHeight-21;
+      }
+    }
+    img {
+      width: 100%;
+    }
+    .accordion_image {
+      display: none;
+    }
+  }
+  .accordion_images {
+    position: relative;
+    width: 100%;
+    img {
+      opacity: 0;
+      transition: $transition-500;
+      width: 100%;
+      height: 740px;
+      object-fit: cover;
+      border-radius: $border-radius-xl;
+      @include for-small-laptop() {
+        height: 600px;
+      }
+      @include for-tablet() {
+        height: 535px;
+      }
+      @include for-mobile() {
+        height: 250px;
+      }
+      &:not(:first-child) {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+    img.active {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+}
+
+// Text accordion
+.text-accordions {
+  width: 100%;
+
+  .text-accordion {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid $grey;
+
+    .text-accordion_title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: $spacing-xl;
+      position: relative;
+      padding: $spacing-s 0;
+      cursor: pointer;
+      @include for-mobile() {
+        padding: 20px 0;
+      }
+      h3 {
+        color: $black;
+        font-size: $fontSize-26;
+        font-weight: $semiBold-weight;
+        letter-spacing: $letterSpacing--0064;
+        margin: 0;
+        @include for-mobile() {
+          font-size: $fontSize-16;
+          font-weight: $semiBold-weight;
+          letter-spacing: $letterSpacing--0064;
+        }
+      }
+
+      .icon {
+        transform: rotate(0);
+        transition: $transition-500;
+        height: 36px;
+        width: 36px;
+        @include for-mobile() {
+          height: 30px;
+          width: 30px;
+          svg {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
+
+    .text-accordion_content {
+      color: $black;
+      max-height: 0;
+      overflow: hidden;
+      will-change: max-height;
+      transition: $transition-500;
+      opacity: 0;
+      p {
+        @include for-small-laptop() {
+          width: 750px;
+        }
+        @include for-tablet() {
+          font-size: $fontSize-16;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+        }
+        @include for-small-tablet() {
+          width: 100%;
+        }
+        @include for-mobile() {
+          font-size: $fontSize-14;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+        }
+      }
+    }
+
+    &:first-child {
+      .text-accordion_title {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .text-accordion_active {
+    padding-bottom: $spacing-s;
+    @include for-mobile() {
+      padding-bottom: 20px;
+    }
+    .text-accordion_title {
+      @include for-tablet() {
+        padding-bottom: $spacing-xs;
+      }
+      .icon {
+        transform: rotate(180deg);
+        transition: transform 500ms;
+      }
+    }
+
+    .text-accordion_content {
+      opacity: 1;
+    }
+    p {
+      color: $neutral-grey-950;
+      font-size: $fontSize-20;
+      font-weight: $regular-weight;
+      line-height: $lineHeight-29;
+      letter-spacing: $letterSpacing--005;
+      margin: 0;
+      a {
+        font-size: $fontSize-20;
+        font-weight: $medium-weight;
+        line-height: $lineHeight-29;
+        letter-spacing: $letterSpacing--005;
+        color: $secondary-blue-500;
+        text-decoration: none;
+      }
+    }
+  }
+}

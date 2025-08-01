@@ -1,0 +1,188 @@
+@use '../abstracts/' as *;
+
+// Hero Headings
+h1.h1-hero {
+  font-size: $fontSize-58;
+  line-height: $lineHeight-75;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+  text-align: $text-left;
+  padding-bottom: $spacing-s;
+  @include for-tablet() {
+    font-size: $fontSize-38;
+    line-height: $lineHeight-46;
+    padding-bottom: $spacing-xs;
+  }
+  @include for-mobile() {
+    font-size: $fontSize-26;
+    padding-bottom: $spacing-xs;
+    line-height: normal;
+  }
+}
+
+// Headings
+.h1 {
+  font-size: $fontSize-48;
+  font-weight: $semiBold-weight;
+  line-height: $lineHeight-62;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+  @include for-tablet() {
+    font-size: $fontSize-38;
+    font-weight: $semiBold-weight;
+    line-height: $lineHeight-46;
+    letter-spacing: $letterSpacing--0064;
+}
+  @include for-mobile() {
+      font-size: $fontSize-26;
+      font-weight: $semiBold-weight;
+      letter-spacing: $letterSpacing--0064;
+      line-height: normal;
+  }
+}
+
+.h2 {
+  font-size: $fontSize-38;
+  font-weight: $semiBold-weight;
+  line-height: $lineHeight-46;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+}
+
+.h3 {
+  font-size: $fontSize-32;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+}
+
+.h4 {
+  font-size: $fontSize-26;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing--0064;
+  line-height: normal;
+  color: $black;
+}
+
+.h5 {
+  font-size: $fontSize-20;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+}
+
+.h6 {
+  font-size: $fontSize-16;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing--0064;
+  color: $black;
+}
+
+// Body
+.body.body--large {
+  font-size: $fontSize-20;
+  font-weight: $regular-weight;
+  line-height: $lineHeight-29;
+  letter-spacing: $letterSpacing--005;
+  color: $black;
+}
+
+.body.body--medium {
+  font-size: $fontSize-16;
+  font-weight: $regular-weight;
+  line-height: $lineHeight-21;
+  letter-spacing: $letterSpacing--005;
+  color: $black;
+}
+
+.body.body--small {
+  font-size: $fontSize-14;
+  font-weight: $regular-weight;
+  line-height: $lineHeight-21;
+  letter-spacing: $letterSpacing--005;
+  color: $black;
+}
+
+// Subtitles
+.subtitle.subtitle--large {
+  font-size: $fontSize-18;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing-048;
+}
+
+.subtitle.subtitle--medium {
+  font-size: $fontSize-16;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing-048;
+}
+
+.subtitle.subtitle--small {
+  font-size: $fontSize-14;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing-048;
+
+}
+
+// Captions
+.caption.caption--large {
+  font-size: $fontSize-14;
+  font-weight: $regular-weight;
+  letter-spacing: $letterSpacing--005;
+}
+
+// Links
+a.link.link--large {
+  font-size: $fontSize-20;
+  font-weight: $medium-weight;
+  line-height: $lineHeight-29;
+  letter-spacing: $letterSpacing--005;
+  color: $secondary-blue-500;
+  text-decoration: none;
+}
+
+a.link.link--medium {
+  font-size: $fontSize-16;
+  font-weight: $medium-weight;
+  line-height: $lineHeight-21;
+  letter-spacing: $letterSpacing--005;
+  color: $secondary-blue-500;
+  text-decoration: none;
+}
+
+a.link.link--small {
+  font-size: $fontSize-14;
+  font-weight: $medium-weight;
+  line-height: $lineHeight-21;
+  letter-spacing: $letterSpacing--005;
+  color: $secondary-blue-500;
+  text-decoration: none;
+}
+
+// Buttons
+button.btn.btn-large {
+  font-size: $fontSize-16;
+  font-weight: $semiBold-weight;
+  letter-spacing: $letterSpacing-025;
+  margin: 0;
+}
+
+button.btn.btn-medium {
+    font-size: $fontSize-14;
+    font-weight: $semiBold-weight;
+    letter-spacing: $letterSpacing-025;
+    margin: 0;
+  }
+
+// Numbers
+.number.number-large {
+    font-size: $fontSize-58;
+    font-weight: $regular-weight;
+    letter-spacing: $letterSpacing-2;
+  }
+
+  .number.number-small {
+    font-size: $fontSize-48;
+    font-weight: $regular-weight;
+    letter-spacing: $letterSpacing-2;
+  }

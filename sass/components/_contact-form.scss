@@ -1,0 +1,81 @@
+@use "../abstracts/" as *;
+
+.contact-form {
+  background-color: $white;
+  color: $black;
+  border-radius: $border-radius-xl;
+  padding: $spacing-m;
+  flex: 1;
+  box-shadow: $box-shadow-form;
+  max-width: 600px;
+  @include for-laptop() {
+    margin: 0 auto;
+    width: 100%;
+  }
+  @include for-tablet() {
+    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+  }
+  @include for-mobile() {
+    padding: $spacing-s;
+  }
+  label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: $fontSize-16;
+    font-weight: $regular-weight;
+    line-height: $lineHeight-21;
+    letter-spacing: $letterSpacing--005;
+    @include for-mobile() {
+      font-size: $fontSize-14;
+      font-weight: $regular-weight;
+      margin-bottom: $spacing-xxs;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 13px 12px;
+    border-radius: $border-radius-m;
+    border: 1px solid $neutral-grey-300;
+    background-color: $bg-light;
+    margin-bottom: $spacing-s;
+    font-size: $fontSize-16;
+    font-weight: $regular-weight;
+    line-height: $lineHeight-21;
+    letter-spacing: $letterSpacing--005;
+    resize: vertical;
+    @include for-mobile() {
+      font-size: $fontSize-14;
+      font-weight: $regular-weight;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  input.invalid,
+  textarea.invalid {
+    border: 1px solid $error;
+  }
+
+  button {
+    margin-top: $spacing-xxs;
+    @include for-small-mobile() {
+      width: 100%;
+    }
+  }
+
+  #form-status {
+    display: none;
+    margin-top: $spacing-s;
+    font-size: $fontSize-16;
+    font-weight: $regular-weight;
+    line-height: $lineHeight-21;
+    letter-spacing: $letterSpacing--005;
+
+    &.visible {
+      display: block;
+    }
+  }
+}

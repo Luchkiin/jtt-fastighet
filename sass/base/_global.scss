@@ -1,0 +1,132 @@
+@use "../abstracts/" as *;
+
+//Fonts
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/manrope-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/manrope-v19-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/manrope-v19-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+// General Styles
+body {
+  background-color: $white;
+  font-family: 'Manrope', sans-serif;
+  color: $black;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  @include for-desktop() {
+    padding: $spacing-xxxl $spacing-xl;
+  }
+  @include for-tablet() {
+    padding: $spacing-xxl $spacing-xl;
+  }
+  @include for-mobile() {
+    padding: $spacing-xl $spacing-s;
+  }
+}
+
+.inner-wrapper {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+  @include for-desktop() {
+    padding: 0;
+  }
+}
+
+.content-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.line-break {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button,
+input,
+textarea  
+ {
+  &:focus {
+    outline: 2px solid $secondary-blue-500; // Inner border
+    outline-offset: 3px;
+    border-radius: $border-radius-s;
+    box-shadow: 0 0 0 2px $white; // Outer border
+  }
+}
+
+section {
+  padding: $spacing-xxxl 0;
+  position: relative;
+  @include for-mobile() {
+    padding: $spacing-xxl 0;
+  }
+}
+
+p {
+  font-size: $fontSize-20;
+  font-weight: $regular-weight;
+  line-height: $lineHeight-29;
+  letter-spacing: $letterSpacing--005;
+  color: $black;
+  @include for-mobile() {
+    font-size: $fontSize-16;
+    font-weight: $regular-weight;
+    line-height: $lineHeight-21;
+    letter-spacing: $letterSpacing--005;
+  }
+}
+
+.p-margin-bottom {
+  margin-bottom: $spacing-s;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.lock-scroll {
+  overflow: hidden;
+  -ms-overflow-style: none; // IE 11
+  scrollbar-width: none; // Firefox
+  ::-webkit-scrollbar {
+    display: none; // Chrome, Safari & Opera
+    width: 0;
+    background: $transparent;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

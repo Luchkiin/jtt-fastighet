@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Lucas Rosendahl" />
+
+    <!-- Title & SEO -->
+    <title>
+      JTT Fastighet & Konsult – Fastighetsservice med kvalitet & erfarenhet
+    </title>
+    <meta
+      name="description"
+      content="JTT Fastighet & Konsult erbjuder helhetslösningar inom fastighetsservice. Vi tar hand om drift, underhåll och jour med fokus på kvalitet, trygghet och effektivitet."
+    />
+    <link rel="canonical" href="https://jttfastighet.se" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <!--     <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" /> -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="images/favicons/site.webmanifest" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Structured Data / Schema.org  -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JTT Fastighet & Konsult",
+        "url": "https://jttfastighet.se",
+        "logo": "https://jttfastighet.se/images/logos/logo_large.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+46-10-2078096",
+          "contactType": "Customer Service",
+          "areaServed": "SE",
+          "availableLanguage": "Swedish"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="skip-to-content-wrapper">
+      <a href="#main-content" class="skip-to-content-link" id="skip-to-content"
+        >Hoppa till huvudinnehåll</a
+      >
+    </div>
+    <div id="status-banner" class="status-banner">
+      <p class="status-text">
+        Just nu upplever vi driftstörningar på vissa av våra tjänster. Vi
+        arbetar på att lösa det så snabbt som möjligt.
+      </p>
+      <button
+        id="close-banner"
+        class="status-close"
+        aria-label="Stäng meddelande"
+      >
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.4 22.6538L9.34619 21.6L14.9462 16L9.34619 10.4L10.4 9.34619L16 14.9462L21.6 9.34619L22.6538 10.4L17.0538 16L22.6538 21.6L21.6 22.6538L16 17.0538L10.4 22.6538Z"
+            fill="black"
+          />
+        </svg>
+      </button>
+    </div>
+    <header class="header" id="header">
+      <div class="header__logo-wrapper">
+        <a href="/" class="header__logo logo__desktop">
+          <img
+            src="images/logos/logo_large.svg"
+            class="header__logo--image"
+            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+          />
+        </a>
+        <a class="header__logo logo__mobile" href="/">
+          <img
+            class="header__logo--image"
+            src="images/logos/logo_small.svg"
+            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+          />
+        </a>
+      </div>
+      <nav class="navigation" aria-label="Huvudmeny">
+        <div class="navigation__wrapper">
+          <div class="navigation__link-wrapper">
+            <a href="#om-oss" class="navigation-link fade-up">Om oss</a>
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#vara-tjanster" class="navigation-link fade-up"
+              >Våra tjänster</a
+            >
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#varfor-valja-oss" class="navigation-link fade-up"
+              >Varför välja oss?</a
+            >
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#kontakta-oss" class="navigation-link fade-up"
+              >Kontakta oss</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- Hamburger / Close icon -->
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+      >
+        <div class="menu-icon" id="menu-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <!-- Mobile Navigation -->
+      <nav
+        class="navigation__mobile no-scroll"
+        id="mobile-nav"
+        aria-label="Mobilemny, huvudmeny"
+      >
+        <div class="mobile-menu__header">
+          <img
+            src="images/logos/logo_small.svg"
+            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+            class="mobile-menu__logo"
+          />
+          <button class="close-button" id="menu-close" aria-label="Stäng meny">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.4 22.6538L9.34619 21.6L14.9462 16L9.34619 10.4L10.4 9.34619L16 14.9462L21.6 9.34619L22.6538 10.4L17.0538 16L22.6538 21.6L21.6 22.6538L16 17.0538L10.4 22.6538Z"
+                fill="black"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="navigation__wrapper">
+          <a href="#om-oss" class="navigation-link">Om oss</a>
+          <a href="#vara-tjanster" class="navigation-link">Våra tjänster</a>
+          <a href="#varfor-valja-oss" class="navigation-link"
+            >Varför välja oss?</a
+          >
+          <a href="#kontakta-oss" class="navigation-link">Kontakta oss</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="1">
+      <section id="hero" class="container container__hero">
+        <div class="copy-cta">
+          <div class="title">
+            <h1 class="h1-hero">
+              Helhetslösningar för fastigheter - tryggt, effektivt, erfaret
+            </h1>
+          </div>
+          <div class="text">
+            <p>
+              Vi erbjuder heltäckande fastighetsservice med fokus på kvalitet,
+              effektivitet och långsiktighet. Med oss får du en trygg partner
+              för allt från löpande underhåll till akuta insatser – dygnet runt.
+            </p>
+          </div>
+          <button
+            class="button-primary large"
+            onclick="location.href='#kontakta-oss'"
+          >
+            <div class="button-text">Kontakta oss</div>
+            <div class="button-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="40" height="40" rx="20" fill="black" />
+                <path
+                  d="M21.8462 25.6538L20.7923 24.5692L24.6116 20.75H12.5L12.5 19.25H24.6116L20.7923 15.4308L21.8462 14.3462L27.5 20L21.8462 25.6538Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div class="hero-image"></div>
+      </section>
+      <section id="om-oss" class="container container__about">
+        <div class="inner-wrapper">
+          <div class="title-text-wrapper">
+            <div class="title">
+              <h2 class="h1">
+                Din specialist inom trygg fastighetsförvaltning
+              </h2>
+            </div>
+            <div class="text">
+              <p>
+                Välkommen till JTT Fastighet & Konsult, din specialist inom
+                trygg och långsiktig fastighetsförvaltning. Med över 30 års
+                samlad erfarenhet inom bygg, drift och förvaltning skapar vi
+                värde i varje uppdrag genom affärsmässighet, praktisk kompetens
+                och ett starkt engagemang. Vi ser möjligheter där andra ser
+                problem, och vår mission är att leverera hållbara lösningar som
+                stärker fastighetens värde över tid.
+              </p>
+            </div>
+          </div>
+          <div class="images">
+            <div class="image">
+              <img
+                src="images/about/about-image_01.jpg"
+                alt="En person i varselväst och arbetshandskar som monterar stålkonstruktioner med verktyg på en byggarbetsplats."
+              />
+            </div>
+            <div class="image">
+              <img
+                src="images/about/about-image_02.jpg"
+                alt="Vy rakt ner genom ett modernt trapphus med svarta räcken och trädetaljer, där trapporna bildar ett geometriskt mönster."
+              />
+            </div>
+            <div class="image">
+              <img
+                src="images/about/about-image_03.jpg"
+                alt="Fasad av en modern kontorsbyggnad med stora fönster i ett rutmönster, fotograferad från marknivå mot en grå himmel."
+              />
+            </div>
+          </div>
+          <div class="usps">
+            <div class="usp">
+              <div class="title-number"><h3>30+</h3></div>
+              <div class="subtitle"><h4>Års erfarenhet</h4></div>
+              <div class="text">
+                <p>
+                  Tre decenniers erfarenhet gör oss till en trygg partner inom
+                  fastighetsservice.
+                </p>
+              </div>
+            </div>
+            <div class="usp">
+              <div class="title-number"><h3>10+</h3></div>
+              <div class="subtitle"><h4>Olika tjänster</h4></div>
+              <div class="text">
+                <p>
+                  Vi erbjuder allt från skötsel och städning till akuta
+                  reparationer och jour.
+                </p>
+              </div>
+            </div>
+            <div class="usp">
+              <div class="title-number"><h3>24/7</h3></div>
+              <div class="subtitle"><h4>Jourservice</h4></div>
+              <div class="text">
+                <p>
+                  Snabb och pålitlig hjälp dygnet runt när du behöver det som
+                  mest.
+                </p>
+              </div>
+            </div>
+            <div class="usp">
+              <div class="title-number"><h3>100%</h3></div>
+              <div class="subtitle"><h4>Kundnöjdhet</h4></div>
+              <div class="text">
+                <p>
+                  Vi strävar alltid efter 100% kundnöjdhet där kvalitet,
+                  säkerhet står i fokus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="vara-tjanster" class="container container__services">
+        <div class="inner-wrapper">
+          <div class="title-text-wrapper">
+            <div class="title">
+              <h2 class="h1">
+                Allt under samma tak för tryggare fastighetsdrift
+              </h2>
+            </div>
+            <div class="text">
+              <p>
+                Vi erbjuder ett brett utbud av tjänster inom fastighetsservice
+                och teknisk drift anpassat för företag, fastighetsägare och
+                förvaltare.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordions">
+            <div class="accordions-wrapper">
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Fastighetsservice & tekniskt underhåll</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <img
+                    src="images/services/accordion-image_01.jpg"
+                    class="accordion_image"
+                  />
+                  <p>
+                    Vi tar hand om den dagliga driften av din fastighet, från
+                    yttre skötsel till enklare underhållsåtgärder. Med
+                    regelbunden närvaro skapar vi en trygg, trivsam och välskött
+                    miljö för både boende och besökare.
+                  </p>
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Akuta och planerade reparationer</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <p>
+                    Vi hanterar både akuta fel och planerade åtgärder inom VVS,
+                    el, snickeri och inomhusmiljöer. Oavsett om det handlar om
+                    en vattenläcka, elavbrott eller slitage i trapphuset, löser
+                    vi det snabbt och säkert med rätt kompetens på plats.
+                  </p>
+                  <img
+                    src="images/services/accordion-image_02.jpg"
+                    class="accordion_image"
+                  />
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Tillsyn, jour och felavhjälpning</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <p>
+                    Vi erbjuder tillsyn och beredskap dygnet runt. Vår
+                    jourpersonal är redo att agera vid fel, störningar och akuta
+                    incidenter, så att du slipper onödiga risker och får hjälp
+                    när det verkligen behövs oavsett tid på dygnet.
+                  </p>
+                  <img
+                    src="images/services/accordion-image_03.jpg"
+                    class="accordion_image"
+                  />
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Renovering och mindre entreprenadprojekt</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <p>
+                    Behöver du modernisera fastigheten, bygga om eller utföra
+                    mindre projekt? Vi tar helhetsansvar för renovering och
+                    ombyggnation, från planering till färdigt resultat, med
+                    fokus på kvalitet och tydlig kommunikation.
+                  </p>
+                  <img
+                    src="images/services/accordion-image_04.jpg"
+                    class="accordion_image"
+                  />
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Avtalad tillsyn och förebyggande underhåll</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <p>
+                    Med planerat underhåll och regelbunden kontroll minskar
+                    risken för kostsamma skador och driftstörningar. Vi
+                    skräddarsyr tillsynsavtal som passar dina behov och
+                    säkerställer att din fastighet mår bra, idag och imorgon.
+                  </p>
+                  <img
+                    src="images/services/accordion-image_05.jpg"
+                    class="accordion_image"
+                  />
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="accordion_title">
+                  <h3 class="h4">Konsulttjänster inom fastighetsförvaltning</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="accordion_content">
+                  <p>
+                    Vi erbjuder rådgivning och stöd inom teknisk förvaltning,
+                    upphandlingar, energifrågor och projektledning. Vår expertis
+                    hjälper dig fatta rätt beslut och optimera fastighetens
+                    drift, ekonomi och långsiktiga värde.
+                  </p>
+                  <img
+                    src="images/services/accordion-image_06.jpg"
+                    class="accordion_image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion_images">
+              <img src="images/services/accordion-image_01.jpg" />
+              <img src="images/services/accordion-image_02.jpg" />
+              <img src="images/services/accordion-image_03.jpg" />
+              <img src="images/services/accordion-image_04.jpg" />
+              <img src="images/services/accordion-image_05.jpg" />
+              <img src="images/services/accordion-image_06.jpg" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="varfor-valja-oss" class="container container__why-us">
+        <div class="inner-wrapper">
+          <div class="title-text-wrapper">
+            <div class="title-text">
+              <div class="title">
+                <h2 class="h1">Därför ska du välja JTT Fastighet & Konsult</h2>
+              </div>
+              <div class="text">
+                <p>
+                  Fyra goda skäl till varför vi är rätt val som din
+                  fastighetsförvaltare.
+                </p>
+              </div>
+            </div>
+            <div class="subititle-text-button">
+              <div class="subtitle">
+                <h3 class="h4">Är du intresserad av att veta mer?</h3>
+              </div>
+              <div class="text">
+                <p>
+                  Skicka din förfrågan nedan för en kostnadsfri rådgivning. Vi
+                  berättar gärna hur vi kan hjälpa just dig och din fastighet.
+                </p>
+              </div>
+              <button
+                class="button-primary large"
+                onclick="location.href='#kontakta-oss'"
+              >
+                <div class="button-text">Kontakta oss</div>
+                <div class="button-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="40" height="40" rx="20" fill="black" />
+                    <path
+                      d="M21.8462 25.6538L20.7923 24.5692L24.6116 20.75H12.5L12.5 19.25H24.6116L20.7923 15.4308L21.8462 14.3462L27.5 20L21.8462 25.6538Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="usp-cards">
+            <div class="usp-cards__inner-wrapper">
+              <div class="usp-card">
+                <div class="usp-card__number">
+                  <h4 class="title-number">01</h4>
+                </div>
+                <div class="usp-card__subtitle">
+                  <h5 class="h5">
+                    Förebyggande underhåll som sparar pengar på sikt
+                  </h5>
+                </div>
+                <div class="usp-card__text">
+                  <p>
+                    Vi arbetar proaktivt med regelbunden tillsyn och underhåll
+                    för att förlänga livslängden på fastighetens tekniska system
+                    och ytskikt. Det förebygger kostsamma reparationer och ger
+                    tryggare ekonomi på lång sikt.
+                  </p>
+                </div>
+              </div>
+              <div class="usp-card">
+                <div class="usp-card__number">
+                  <h4 class="title-number">02</h4>
+                </div>
+                <div class="usp-card__subtitle">
+                  <h5 class="h5">Teknisk expertis när du behöver den</h5>
+                </div>
+                <div class="usp-card__text">
+                  <p>
+                    Våra konsulter analyserar driftkostnader, föreslår
+                    energibesparande åtgärder och hjälper till med
+                    upphandlingar, underhållsplaner och ombyggnationer. Du får
+                    tillgång till strategisk rådgivning som höjer både värde och
+                    funktion i fastigheten.
+                  </p>
+                </div>
+              </div>
+              <div class="usp-card">
+                <div class="usp-card__number">
+                  <h4 class="title-number">03</h4>
+                </div>
+                <div class="usp-card__subtitle">
+                  <h5 class="h5">En kontakt, full kontroll</h5>
+                </div>
+                <div class="usp-card__text">
+                  <p>
+                    Med oss som helhetsleverantör slipper du hantera flera olika
+                    aktörer. Vi samordnar allt från snöröjning till ventilation,
+                    vilket ökar driftsäkerheten, sparar tid och minskar
+                    administrationen.
+                  </p>
+                </div>
+              </div>
+              <div class="usp-card">
+                <div class="usp-card__number">
+                  <h4 class="title-number">04</h4>
+                </div>
+                <div class="usp-card__subtitle">
+                  <h5 class="h5">Vi lyfter fastighetens värde</h5>
+                </div>
+                <div class="usp-card__text">
+                  <p>
+                    En välskött fastighet är mer attraktiv både för hyresgäster
+                    och investerare. Genom effektiv drift, professionell skötsel
+                    och ett öga för detaljer bidrar vi till ökat marknadsvärde
+                    och trivsel.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subititle-text-button last-element">
+            <div class="subtitle">
+              <h3 class="h4">Är du intresserad av att veta mer?</h3>
+            </div>
+            <div class="text">
+              <p>
+                Skicka din förfrågan nedan för en kostnadsfri rådgivning. Vi
+                berättar gärna hur vi kan hjälpa just dig och din fastighet.
+              </p>
+            </div>
+            <button
+              class="button-primary large"
+              onclick="location.href='#kontakta-oss'"
+            >
+              <div class="button-text">Kontakta oss</div>
+              <div class="button-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="40" height="40" rx="20" fill="black" />
+                  <path
+                    d="M21.8462 25.6538L20.7923 24.5692L24.6116 20.75H12.5L12.5 19.25H24.6116L20.7923 15.4308L21.8462 14.3462L27.5 20L21.8462 25.6538Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section id="vanliga-fragor-och-svar" class="container container__faq">
+        <div class="inner-wrapper">
+          <div class="title-text-wrapper">
+            <div class="title-text">
+              <div class="title">
+                <h2 class="h1">Vanliga frågor och svar</h2>
+              </div>
+              <div class="text">
+                <p>Svar på dina frågor, samlat på ett ställe.</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-accordions">
+            <div class="text-accordions-wrapper">
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Vad erbjuder vi för tjänster?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Vi erbjuder helhetslösningar för fastigheter från löpande
+                    fastighetsskötsel och tekniskt underhåll till byggtjänster,
+                    jourservice, VVS, el, ventilation, lokalvård, brandlarm, OVK
+                    och mycket mer. Allt samlat under ett tak.
+                  </p>
+                </div>
+              </div>
+
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Är ni tillgängliga dygnet runt?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Ja! Vår jourservice är öppen 24/7 året om. Vi finns
+                    tillgängliga vid akuta situationer som vattenläckor, elfel,
+                    låsproblem eller andra driftstörningar.
+                  </p>
+                </div>
+              </div>
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Vilken typ av kunder arbetar ni med?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Vi arbetar med fastighetsägare, bostadsrättsföreningar,
+                    kommersiella fastigheter, förvaltare och företag. Oavsett
+                    storlek på fastigheten anpassar vi våra tjänster efter dina
+                    behov.
+                  </p>
+                </div>
+              </div>
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Var är ni verksamma?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Vi utgår från Nykvarn och är verksamma i hela
+                    Stockholmsregionen med omnejd. Tveka inte att kontakta oss
+                    för att se om vi kan hjälpa till i just ditt område.
+                  </p>
+                </div>
+              </div>
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Kan jag få en kostnadsfri offert?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Ja, vi erbjuder kostnadsfri rådgivning och offert. Fyll i
+                    kontaktformuläret nedan eller ring oss på
+                    <a
+                      href="tel:+460102078096"
+                      class="link"
+                      title="Ring vårt telefonnummer"
+                      >010-207 80 96</a
+                    >
+                    så återkommer vi inom 24 timmar.
+                  </p>
+                </div>
+              </div>
+              <div class="text-accordion">
+                <div class="text-accordion_title">
+                  <h3 class="h4">Är ni försäkrade och certifierade?</h3>
+                  <div class="icon">
+                    <svg
+                      width="36"
+                      height="36"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-accordion_content">
+                  <p>
+                    Absolut. Vi arbetar enligt branschens krav och riktlinjer
+                    och samarbetar med etablerade aktörer. Vår personal har rätt
+                    kompetens och utbildning för sina respektive områden.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="kontakta-oss" class="container container__contact">
+        <div class="inner-wrapper">
+          <div class="contact-info">
+            <div class="title-text-wrapper">
+              <div class="title-text">
+                <div class="title">
+                  <h2 class="h1">Kontakta oss</h2>
+                </div>
+                <div class="text">
+                  <p>
+                    Vill du veta hur vi kan förenkla och förbättra förvaltningen
+                    av din fastighet? Kontakta oss för en kostnadsfri
+                    rådgivning. Vi återkommer inom 24 timmar.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-info-wrapper">
+              <div class="contact-info__location">
+                <h3 class="h5">Kontor</h3>
+                <p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Skälbyvägen+13+B,+155+35+Nykvarn"
+                    target="_blank"
+                    rel="noopener"
+                    title="Se adress på Google Maps"
+                    >Skälbyvägen 13 b, 155 35 Nykvarn</a
+                  >
+                </p>
+              </div>
+              <div class="contact-info__email">
+                <h3 class="h5">Email</h3>
+                <p>
+                  <a href="mailto:info@jttfastighet.se" title="Skicka mail"
+                    >info@jttfastighet.se</a
+                  >
+                </p>
+              </div>
+              <div class="contact-info__phone-number">
+                <h3 class="h5">Telefonnummer</h3>
+                <p>
+                  <a href="tel:+460102078096" title="Ring vårt telefonnummer"
+                    >010-207 80 96</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="social-media-info-wrapper">
+              <div class="socail-media-info">
+                <h4 class="h4">Följ oss</h4>
+                <div class="social-media-icon">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    title="Följ oss på LinkedIn"
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 0.5H32C36.1421 0.5 39.5 3.85786 39.5 8V32C39.5 36.1421 36.1421 39.5 32 39.5H8C3.85786 39.5 0.5 36.1421 0.5 32V8C0.5 3.85786 3.85786 0.5 8 0.5Z"
+                        stroke="white"
+                      />
+                      <path
+                        d="M15.05 17.3H11.45C11.2015 17.3 11 17.5015 11 17.75V29.45C11 29.6985 11.2015 29.9 11.45 29.9H15.05C15.2985 29.9 15.5 29.6985 15.5 29.45V17.75C15.5 17.5015 15.2985 17.3 15.05 17.3Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M13.232 15.4999C13.6778 15.5035 14.1145 15.3746 14.4869 15.1295C14.8593 14.8845 15.1505 14.5343 15.3235 14.1235C15.4966 13.7127 15.5437 13.2597 15.459 12.8221C15.3742 12.3845 15.1613 11.9819 14.8474 11.6654C14.5334 11.3489 14.1326 11.1329 13.6956 11.0446C13.2587 10.9563 12.8054 10.9998 12.3932 11.1695C11.981 11.3393 11.6285 11.6277 11.3805 11.998C11.1325 12.3684 11 12.8042 11 13.2499C10.9988 13.5442 11.0556 13.8359 11.1672 14.1082C11.2787 14.3806 11.4428 14.6283 11.65 14.8372C11.8573 15.0461 12.1037 15.2122 12.3751 15.3259C12.6465 15.4396 12.9377 15.4987 13.232 15.4999Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M25.85 29.8999H28.55C28.6694 29.8999 28.7838 29.8525 28.8682 29.7681C28.9526 29.6837 29 29.5692 29 29.4499V21.8899C29 18.4969 27.083 16.8499 24.401 16.8499C23.8699 16.831 23.3408 16.9238 22.8478 17.1222C22.3548 17.3207 21.9089 17.6203 21.539 18.0019C21.4888 18.0565 21.4225 18.0937 21.3497 18.1083C21.277 18.1228 21.2014 18.1139 21.134 18.0829C21.066 18.0575 21.0072 18.0121 20.9655 17.9526C20.9237 17.8932 20.9009 17.8225 20.9 17.7499C20.9 17.6306 20.8526 17.5161 20.7682 17.4317C20.6839 17.3473 20.5694 17.2999 20.45 17.2999H17.75C17.6307 17.2999 17.5162 17.3473 17.4319 17.4317C17.3475 17.5161 17.3 17.6306 17.3 17.7499V29.4499C17.3 29.5692 17.3475 29.6837 17.4319 29.7681C17.5162 29.8525 17.6307 29.8999 17.75 29.8999H20.45C20.5694 29.8999 20.6839 29.8525 20.7682 29.7681C20.8526 29.6837 20.9 29.5692 20.9 29.4499V22.6999C20.9 22.1032 21.1371 21.5309 21.5591 21.1089C21.981 20.687 22.5533 20.4499 23.15 20.4499C23.7468 20.4499 24.3191 20.687 24.741 21.1089C25.163 21.5309 25.4 22.1032 25.4 22.6999V29.4499C25.4 29.5692 25.4475 29.6837 25.5318 29.7681C25.6162 29.8525 25.7307 29.8999 25.85 29.8999Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <label for="name">Namn</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              pattern="[A-Za-zÅÄÖåäö\s\-]+"
+              title="Vänligen ange endast bokstäver och mellanslag"
+              placeholder="Ditt för- och efternamn"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              title="Vänligen ange en giltig e-postadress enligt exempelformatet namn@domän.se"
+              placeholder="Din emailadress"
+              required
+            />
+
+            <label for="phone">Telefonnummer</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[\d+\s\-]+"
+              title="Vänligen ange endast siffror, plus och mellanslag"
+              placeholder="Ditt telefonnummer"
+            />
+
+            <label for="message">Meddelande</label>
+            <textarea
+              id="message"
+              name="message"
+              pattern=".*\S.*"
+              minlength="5"
+              title="Meddelandet måste innehålla minst 5 tecken"
+              placeholder="Beskriv vad du behöver hjälp med..."
+              rows="5"
+              required
+            ></textarea>
+
+            <button type="submit" class="button-secondary large">
+              <div class="button-text">Skicka meddelande</div>
+            </button>
+            <p id="form-status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="inner-wrapper">
+        <div class="footer_logo-copyright">
+          <div class="footer__logo">
+            <a href="#hero">
+              <img
+                src="images/logos/logo_x-large.svg"
+                alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+              />
+            </a>
+          </div>
+          <p id="copyright"></p>
+        </div>
+        <div class="shortcuts">
+          <h2 class="h3">Genvägar</h2>
+          <div class="shortcut-links">
+            <a class="shortcut-link" href="#om-oss">Om oss</a>
+            <a class="shortcut-link" href="#vara-tjanster">Våra tjänster</a>
+            <a class="shortcut-link" href="#varfor-valja-oss"
+              >Varför välja oss?</a
+            >
+            <a class="shortcut-link" href="#vanliga-fragor-och-svar"
+              >Vanliga frågor</a
+            >
+            <a class="shortcut-link" href="#kontakta-oss">Kontakta oss</a>
+            <a class="shortcut-link" href="cookiepolicy.html">Cookiepolicy</a>
+          </div>
+        </div>
+        <p id="copyright-mobile"></p>
+      </div>
+    </footer>
+
+    <!-- Cookie consent popup -->
+    <div class="cookie-consent" id="cookie-consent">
+      <p>
+        Vi använder cookies för att förbättra din upplevelse.
+        <a href="cookiepolicy.html" class="cookie-link">Läs vår cookiepolicy</a
+        >.
+      </p>
+      <div class="cookie-consent__buttons">
+        <button id="decline-cookies" class="button-secondary xsmall">
+          <div class="button-text">Neka</div>
+        </button>
+        <button id="accept-cookies" class="button-primary xsmall">
+          <div class="button-text">Acceptera</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
