@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const data = new FormData(form);
-      const action = "https://formspree.io/f/xqallewa";
+      const action = "https://formspree.io/f/mqaldrgz";
 
       try {
         const response = await fetch(action, {
