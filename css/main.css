@@ -2454,7 +2454,7 @@ button.btn.btn-medium {
 .skip-to-content-link {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 14px;
   transform: translateY(-100%);
   font-size: 0.875rem;
   font-weight: 600;
@@ -2464,20 +2464,19 @@ button.btn.btn-medium {
   padding: 8px 12px;
   z-index: 1003;
   border-radius: 36px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
 }
 .skip-to-content-link:focus {
-  position: absolute;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
   left: 14px;
   top: 14px;
-  transform: translateY(0);
-  background: #131010;
-  color: #ffffff;
   z-index: 9999;
-  width: auto;
-  height: auto;
   border-radius: 36px;
-  padding: 8px 12px;
 }
 
 main:focus {

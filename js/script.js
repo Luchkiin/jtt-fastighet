@@ -50,12 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBannerBtn = document.getElementById("close-banner");
   if (!banner) return;
 
-  // Visa bannern
   setTimeout(() => {
     banner.classList.add("visible");
   }, 250);
 
-  // Stäng-funktion
   function hideBanner() {
     banner.classList.remove("visible");
     banner.classList.add("hidden");
@@ -69,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // Klick på "X"-knappen
   if (closeBannerBtn) {
     closeBannerBtn.addEventListener("click", hideBanner);
   }
@@ -78,14 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const skipLink = document.getElementById("skip-to-content");
   const mainContent = document.getElementById("main-content");
 
-  // Säkerställ att målet kan fokuseras
   if (skipLink && mainContent) {
     skipLink.addEventListener("click", function (e) {
       e.preventDefault();
-      mainContent.setAttribute("tabindex", "-1"); // tillfälligt fokusbart
+      mainContent.setAttribute("tabindex", "-1");
       mainContent.focus();
 
-      // Ta bort tabindex efteråt (för tillgänglighet)
       setTimeout(() => {
         mainContent.removeAttribute("tabindex");
       }, 1000);

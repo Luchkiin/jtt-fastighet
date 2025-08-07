@@ -71,12 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBannerBtn = document.getElementById("close-banner");
   if (!banner) return;
 
-  // Visa bannern
   setTimeout(() => {
     banner.classList.add("visible");
   }, 250);
 
-  // Stäng-funktion
   function hideBanner() {
     banner.classList.remove("visible");
     banner.classList.add("hidden");
@@ -90,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // Klick på "X"-knappen
   if (closeBannerBtn) {
     closeBannerBtn.addEventListener("click", hideBanner);
   }
