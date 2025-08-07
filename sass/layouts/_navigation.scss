@@ -107,7 +107,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100vh; // Fallback
+    height: 100dvh;
     width: 100%;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
@@ -144,7 +145,12 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-m;
-      height: calc(100vh - $spacing-xxxl); // minus header height (32px) and padding top and bottom values (48px)
+      min-height: calc(
+        100vh - $spacing-xxxl
+      ); // Fallback
+      min-height: calc(
+        100dvh - $spacing-xxxl
+      ); // minus header height (32px) and padding top and bottom values (48px)
       justify-content: center;
 
       .navigation-link {

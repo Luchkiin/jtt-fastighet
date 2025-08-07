@@ -1417,6 +1417,7 @@ button.btn.btn-medium {
     top: 0;
     left: 0;
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
@@ -1449,7 +1450,8 @@ button.btn.btn-medium {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
     justify-content: center;
   }
   .navigation__mobile .navigation__wrapper .navigation-link {
