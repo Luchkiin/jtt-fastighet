@@ -1169,6 +1169,11 @@ button.btn.btn-medium {
   background-color: #ffffff;
   border-radius: 16px;
 }
+@media only screen and (max-width: 1024px) {
+  .container__cookie-policy .inner-wrapper .chapters {
+    max-width: 100%;
+  }
+}
 @media only screen and (max-width: 768px) {
   .container__cookie-policy .inner-wrapper .chapters {
     padding: 24px;
@@ -1297,6 +1302,11 @@ button.btn.btn-medium {
   padding: 32px;
   background-color: #ffffff;
   border-radius: 16px;
+}
+@media only screen and (max-width: 1024px) {
+  .container__privacy-policy .inner-wrapper .chapters {
+    max-width: 100%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .container__privacy-policy .inner-wrapper .chapters {

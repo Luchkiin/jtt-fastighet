@@ -38,6 +38,9 @@
       padding: $spacing-m;
       background-color: $white;
       border-radius: $border-radius-xl;
+      @include for-tablet() {
+       max-width: 100%;
+      }
       @include for-mobile() {
         padding: $spacing-s;
       }
