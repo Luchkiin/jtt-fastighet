@@ -39,7 +39,7 @@
       background-color: $white;
       border-radius: $border-radius-xl;
       @include for-tablet() {
-       max-width: 100%;
+        max-width: 100%;
       }
       @include for-mobile() {
         padding: $spacing-s;
@@ -99,6 +99,8 @@
           line-height: $lineHeight-21;
           letter-spacing: $letterSpacing--005;
           color: $secondary-blue-500;
+          word-break: break-word;
+          overflow-wrap: anywhere;
           @include for-mobile() {
             font-size: $fontSize-14;
           }

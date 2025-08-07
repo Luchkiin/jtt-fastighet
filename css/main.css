@@ -1235,6 +1235,8 @@ button.btn.btn-medium {
   line-height: 21px;
   letter-spacing: -0.005px;
   color: #004a94;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 @media only screen and (max-width: 768px) {
   .container__cookie-policy .inner-wrapper .chapters .chapter a {
@@ -1377,6 +1379,8 @@ button.btn.btn-medium {
   line-height: 21px;
   letter-spacing: -0.005px;
   color: #004a94;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 @media only screen and (max-width: 768px) {
   .container__privacy-policy .inner-wrapper .chapters .chapter a {
