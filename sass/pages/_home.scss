@@ -96,8 +96,11 @@
     background-size: cover;
     background-position: center;
     height: 100%;
-    min-height: calc(
+        min-height: calc(
       100vh - 149px
+    ); // Fallback
+    min-height: calc(
+      100dvh - 149px
     ); // Height of header (101px) and margin bottom (48px)
     max-width: 900px;
     border-radius: $border-radius-xl;
@@ -109,15 +112,21 @@
       max-width: none;
     }
     @include for-tablet() {
-      min-height: calc(
+            min-height: calc(
         100vh - 133px
+      ); // fallback
+      min-height: calc(
+        100dvh - 133px
       ); // Height of header (85px) and margin bottom (48px)
     }
     @include for-mobile() {
       background-image: url("../images/hero/hero-small-portrait.jpg");
       background-position: center top;
-      min-height: calc(
+            min-height: calc(
         100vh - 88px
+      ); // Fallback
+      min-height: calc(
+        100dvh - 88px
       ); // Height of header (62px) and margin bottom (24px)
       margin-bottom: $spacing-s;
     }

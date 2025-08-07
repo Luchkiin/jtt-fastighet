@@ -518,6 +518,7 @@ button.btn.btn-medium {
   background-position: center;
   height: 100%;
   min-height: calc(100vh - 149px);
+  min-height: calc(100dvh - 149px);
   max-width: 900px;
   border-radius: 16px;
   margin-bottom: 48px;
@@ -533,6 +534,7 @@ button.btn.btn-medium {
 @media only screen and (max-width: 1024px) {
   .container__hero .hero-image {
     min-height: calc(100vh - 133px);
+    min-height: calc(100dvh - 133px);
   }
 }
 @media only screen and (max-width: 768px) {
@@ -540,6 +542,7 @@ button.btn.btn-medium {
     background-image: url("../images/hero/hero-small-portrait.jpg");
     background-position: center top;
     min-height: calc(100vh - 88px);
+    min-height: calc(100dvh - 88px);
     margin-bottom: 24px;
   }
 }
