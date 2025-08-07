@@ -1,0 +1,118 @@
+@use "../abstracts/" as *;
+
+.container__privacy-policy {
+  background-color: $bg-light;
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    .privacy-policy__hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: $spacing-xxxl;
+      gap: $spacing-s;
+      @include for-tablet() {
+        gap: $spacing-xs;
+        padding-bottom: $spacing-xxl;
+      }
+      @include for-mobile() {
+        gap: $spacing-xs;
+        padding-bottom: $spacing-xl;
+      }
+      p {
+        font-size: $fontSize-16;
+        font-weight: $regular-weight;
+        line-height: $lineHeight-21;
+        @include for-mobile() {
+          font-size: $fontSize-14;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+        }
+      }
+    }
+    .chapters {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: $spacing-m;
+      background-color: $white;
+      border-radius: $border-radius-xl;
+      @include for-mobile() {
+        padding: $spacing-s;
+      }
+      .chapter {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+        margin-bottom: $spacing-xl;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include for-mobile() {
+          margin-bottom: $spacing-m;
+        }
+        h2 {
+          @include for-mobile() {
+            font-size: $fontSize-20;
+            font-weight: $semiBold-weight;
+            letter-spacing: $letterSpacing--0064;
+          }
+        }
+        h3 {
+          margin-top: $spacing-xxs;
+          @include for-mobile() {
+            font-size: $fontSize-16;
+            font-weight: $semiBold-weight;
+            letter-spacing: $letterSpacing--0064;
+          }
+        }
+        p {
+          font-size: $fontSize-16;
+          font-weight: $regular-weight;
+          line-height: $lineHeight-21;
+          @include for-mobile() {
+            font-size: $fontSize-14;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+          }
+        }
+        ul {
+          margin: 0;
+          padding-left: $spacing-s;
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-xxs;
+          @include for-mobile() {
+            font-size: $fontSize-14;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            gap: 4px;
+          }
+        }
+        a {
+          font-size: $fontSize-16;
+          font-weight: $medium-weight;
+          line-height: $lineHeight-21;
+          letter-spacing: $letterSpacing--005;
+          color: $secondary-blue-500;
+          @include for-mobile() {
+            font-size: $fontSize-14;
+          }
+        }
+        .contact-info-wrapper {
+          margin-top: $spacing-xxs;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          @include for-mobile() {
+            font-size: $fontSize-14;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

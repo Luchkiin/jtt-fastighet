@@ -54,15 +54,32 @@
     }
   }
 
+  textarea {
+    margin-bottom: $spacing-xs;
+  }
+
   input.invalid,
   textarea.invalid {
     border: 1px solid $error;
   }
 
   button {
-    margin-top: $spacing-xxs;
+    margin-top: $spacing-m;
+    @include for-mobile() {
+      margin-top: $spacing-s;
+    }
     @include for-small-mobile() {
       width: 100%;
+    }
+  }
+
+  .policy-text {
+    font-size: $fontSize-14;
+    line-height: $lineHeight-21;
+    a {
+      font-size: $fontSize-14;
+      font-weight: $medium-weight;
+      color: $secondary-blue-500;
     }
   }
 

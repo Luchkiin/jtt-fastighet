@@ -223,6 +223,18 @@ p {
   height: 100vh;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 h1.h1-hero {
   font-size: 3.625rem;
   line-height: 75px;
@@ -1232,6 +1244,143 @@ button.btn.btn-medium {
 }
 @media only screen and (max-width: 768px) {
   .container__cookie-policy .inner-wrapper .chapters .chapter .contact-info-wrapper {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 0;
+  }
+}
+
+.container__privacy-policy {
+  background-color: #f7f5f5;
+}
+.container__privacy-policy .inner-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.container__privacy-policy .inner-wrapper .privacy-policy__hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 80px;
+  gap: 24px;
+}
+@media only screen and (max-width: 1024px) {
+  .container__privacy-policy .inner-wrapper .privacy-policy__hero {
+    gap: 16px;
+    padding-bottom: 64px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .privacy-policy__hero {
+    gap: 16px;
+    padding-bottom: 48px;
+  }
+}
+.container__privacy-policy .inner-wrapper .privacy-policy__hero p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 21px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .privacy-policy__hero p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters {
+    padding: 24px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter {
+    margin-bottom: 32px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.064px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter h3 {
+  margin-top: 8px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.064px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 21px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter ul {
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter ul {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    gap: 4px;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter a {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.005px;
+  color: #004a94;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter a {
+    font-size: 0.875rem;
+  }
+}
+.container__privacy-policy .inner-wrapper .chapters .chapter .contact-info-wrapper {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+@media only screen and (max-width: 768px) {
+  .container__privacy-policy .inner-wrapper .chapters .chapter .contact-info-wrapper {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 21px;
@@ -2287,17 +2436,34 @@ button.btn.btn-medium {
     margin-bottom: 16px;
   }
 }
+.contact-form textarea {
+  margin-bottom: 16px;
+}
 .contact-form input.invalid,
 .contact-form textarea.invalid {
   border: 1px solid #e84c4c;
 }
 .contact-form button {
-  margin-top: 8px;
+  margin-top: 32px;
+}
+@media only screen and (max-width: 768px) {
+  .contact-form button {
+    margin-top: 24px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .contact-form button {
     width: 100%;
   }
+}
+.contact-form .policy-text {
+  font-size: 0.875rem;
+  line-height: 21px;
+}
+.contact-form .policy-text a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #004a94;
 }
 .contact-form #form-status {
   display: none;

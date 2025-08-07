@@ -54,24 +54,6 @@
     <link rel="manifest" href="images/favicons/site.webmanifest" />
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
-
-    <!-- Structured Data / Schema.org  -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "JTT Fastighet & Konsult",
-        "url": "https://jttfastighet.se",
-        "logo": "https://jttfastighet.se/images/logos/logo_large.svg",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+46-10-2078096",
-          "contactType": "Customer Service",
-          "areaServed": "SE",
-          "availableLanguage": "Swedish"
-        }
-      }
-    </script>
   </head>
   <body>
     <div class="skip-to-content-wrapper">
@@ -191,7 +173,7 @@
         </div>
       </nav>
     </header>
-    <main id="main-content" tabindex="1">
+    <main id="main-content" tabindex="-1">
       <section id="hero" class="container container__hero">
         <div class="copy-cta">
           <div class="title">
@@ -255,23 +237,26 @@
               <img
                 src="images/about/about-image_01.jpg"
                 alt="En person i varselväst och arbetshandskar som monterar stålkonstruktioner med verktyg på en byggarbetsplats."
+                loading="lazy"
               />
             </div>
             <div class="image">
               <img
                 src="images/about/about-image_02.jpg"
                 alt="Vy rakt ner genom ett modernt trapphus med svarta räcken och trädetaljer, där trapporna bildar ett geometriskt mönster."
+                loading="lazy"
               />
             </div>
             <div class="image">
               <img
                 src="images/about/about-image_03.jpg"
                 alt="Fasad av en modern kontorsbyggnad med stora fönster i ett rutmönster, fotograferad från marknivå mot en grå himmel."
+                loading="lazy"
               />
             </div>
           </div>
           <div class="usps">
-            <div class="usp">
+            <article class="usp">
               <div class="title-number"><h3>30+</h3></div>
               <div class="subtitle"><h4>Års erfarenhet</h4></div>
               <div class="text">
@@ -280,8 +265,8 @@
                   fastighetsservice.
                 </p>
               </div>
-            </div>
-            <div class="usp">
+            </article>
+            <article class="usp">
               <div class="title-number"><h3>10+</h3></div>
               <div class="subtitle"><h4>Olika tjänster</h4></div>
               <div class="text">
@@ -290,8 +275,8 @@
                   reparationer och jour.
                 </p>
               </div>
-            </div>
-            <div class="usp">
+            </article>
+            <article class="usp">
               <div class="title-number"><h3>24/7</h3></div>
               <div class="subtitle"><h4>Jourservice</h4></div>
               <div class="text">
@@ -300,8 +285,8 @@
                   mest.
                 </p>
               </div>
-            </div>
-            <div class="usp">
+            </article>
+            <article class="usp">
               <div class="title-number"><h3>100%</h3></div>
               <div class="subtitle"><h4>Kundnöjdhet</h4></div>
               <div class="text">
@@ -310,7 +295,7 @@
                   säkerhet står i fokus.
                 </p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -355,6 +340,7 @@
                   <img
                     src="images/services/accordion-image_01.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                   <p>
                     Vi tar hand om den dagliga driften av din fastighet, från
@@ -392,6 +378,7 @@
                   <img
                     src="images/services/accordion-image_02.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -423,6 +410,7 @@
                   <img
                     src="images/services/accordion-image_03.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -454,6 +442,7 @@
                   <img
                     src="images/services/accordion-image_04.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -485,6 +474,7 @@
                   <img
                     src="images/services/accordion-image_05.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -516,6 +506,7 @@
                   <img
                     src="images/services/accordion-image_06.jpg"
                     class="accordion_image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -581,7 +572,7 @@
           </div>
           <div class="usp-cards">
             <div class="usp-cards__inner-wrapper">
-              <div class="usp-card">
+              <article class="usp-card">
                 <div class="usp-card__number">
                   <h4 class="title-number">01</h4>
                 </div>
@@ -598,8 +589,8 @@
                     tryggare ekonomi på lång sikt.
                   </p>
                 </div>
-              </div>
-              <div class="usp-card">
+              </article>
+              <article class="usp-card">
                 <div class="usp-card__number">
                   <h4 class="title-number">02</h4>
                 </div>
@@ -615,8 +606,8 @@
                     funktion i fastigheten.
                   </p>
                 </div>
-              </div>
-              <div class="usp-card">
+              </article>
+              <article class="usp-card">
                 <div class="usp-card__number">
                   <h4 class="title-number">03</h4>
                 </div>
@@ -631,8 +622,8 @@
                     administrationen.
                   </p>
                 </div>
-              </div>
-              <div class="usp-card">
+              </article>
+              <article class="usp-card">
                 <div class="usp-card__number">
                   <h4 class="title-number">04</h4>
                 </div>
@@ -647,7 +638,7 @@
                     och trivsel.
                   </p>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
           <div class="subititle-text-button last-element">
@@ -955,6 +946,9 @@
           </div>
           <form class="contact-form" id="contact-form">
             <label for="name">Namn</label>
+            <span id="name-desc" class="visually-hidden"
+              >Skriv in ditt för- och efternamn med endast bokstäver.</span
+            >
             <input
               type="text"
               id="name"
@@ -966,6 +960,9 @@
             />
 
             <label for="email">Email</label>
+            <span id="email-desc" class="visually-hidden"
+              >Ange en giltig e-postadress, exempelvis namn@domän.se.</span
+            >
             <input
               type="email"
               id="email"
@@ -977,6 +974,10 @@
             />
 
             <label for="phone">Telefonnummer</label>
+            <span id="phone-desc" class="visually-hidden"
+              >Ange telefonnummer med siffror och eventuellt + eller
+              mellanslag.</span
+            >
             <input
               type="tel"
               id="phone"
@@ -987,6 +988,10 @@
             />
 
             <label for="message">Meddelande</label>
+            <span id="message-desc" class="visually-hidden"
+              >Skriv ett meddelande med minst 5 tecken om vad du behöver hjälp
+              med.</span
+            >
             <textarea
               id="message"
               name="message"
@@ -997,11 +1002,14 @@
               rows="5"
               required
             ></textarea>
-
+            <p class="policy-text">
+              Genom att skicka meddelande godkänner du vår
+              <a href="integritetspolicy">integritetspolicy</a>.
+            </p>
             <button type="submit" class="button-secondary large">
               <div class="button-text">Skicka meddelande</div>
             </button>
-            <p id="form-status"></p>
+            <p id="form-status" role="alert"></p>
           </form>
         </div>
       </section>
@@ -1027,10 +1035,10 @@
             <a class="shortcut-link" href="#varfor-valja-oss"
               >Varför välja oss?</a
             >
-            <a class="shortcut-link" href="#vanliga-fragor-och-svar"
-              >Vanliga frågor</a
-            >
             <a class="shortcut-link" href="#kontakta-oss">Kontakta oss</a>
+            <a class="shortcut-link" href="integritetspolicy"
+              >Integritetspolicy</a
+            >
             <a class="shortcut-link" href="cookiepolicy">Cookiepolicy</a>
           </div>
         </div>
@@ -1057,5 +1065,162 @@
 
     <!-- JS -->
     <script src="js/script.js"></script>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vad erbjuder vi för tjänster?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vi erbjuder helhetslösningar för fastigheter från löpande fastighetsskötsel och tekniskt underhåll till byggtjänster, jourservice, VVS, el, ventilation, lokalvård, brandlarm, OVK och mycket mer. Allt samlat under ett tak."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är ni tillgängliga dygnet runt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja! Vår jourservice är öppen 24/7 året om. Vi finns tillgängliga vid akuta situationer som vattenläckor, elfel, låsproblem eller andra driftstörningar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vilken typ av kunder arbetar ni med?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vi arbetar med fastighetsägare, bostadsrättsföreningar, kommersiella fastigheter, förvaltare och företag. Vi anpassar våra tjänster efter dina behov."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Var är ni verksamma?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vi utgår från Nykvarn och är verksamma i hela Stockholmsregionen med omnejd. Tveka inte att kontakta oss för att se om vi kan hjälpa till i just ditt område."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan jag få en kostnadsfri offert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "Ja, vi erbjuder kostnadsfri rådgivning och offert. Fyll i kontaktformuläret nedan eller ring oss på 010-207 80 89 så återkommer vi inom 24 timmar."
+            }
+          }
+                    {
+            "@type": "Question",
+            "name": "Är ni försäkrade och certifierade?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "Absolut. Vi arbetar enligt branschens krav och riktlinjer och samarbetar med etablerade aktörer. Vår personal har rätt kompetens och utbildning för sina respektive områden."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Service Structured Data – samtliga tjänster -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "name": "Fastighetsservice & tekniskt underhåll",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult",
+              "url": "https://jttfastighet.se"
+            },
+            "serviceType": "Fastighetsservice",
+            "areaServed": { "@type": "Place", "name": "Stockholm med omnejd" },
+            "description": "Daglig drift och enklare underhåll för en trygg, trivsam och välskött fastighet."
+          },
+          {
+            "@type": "Service",
+            "name": "Akuta och planerade reparationer",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult"
+            },
+            "serviceType": "Reparationstjänster",
+            "description": "Snabb hantering av vattenläckor, elavbrott, slitage med rätt kompetens på plats."
+          },
+          {
+            "@type": "Service",
+            "name": "Tillsyn, jour och felavhjälpning",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult"
+            },
+            "serviceType": "Jourservice",
+            "description": "24/7 jourpersonal för akuta fel, störningar och incidenter."
+          },
+          {
+            "@type": "Service",
+            "name": "Renovering och mindre entreprenadprojekt",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult"
+            },
+            "serviceType": "Renovering och ombyggnation",
+            "description": "Helhetsansvar för renovering och projektledning från start till slut."
+          },
+          {
+            "@type": "Service",
+            "name": "Avtalad tillsyn och förebyggande underhåll",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult"
+            },
+            "serviceType": "Förebyggande underhåll",
+            "description": "Planerat underhåll och regelbunden kontroll för minskad skaderisk."
+          },
+          {
+            "@type": "Service",
+            "name": "Konsulttjänster inom fastighetsförvaltning",
+            "provider": {
+              "@type": "Organization",
+              "name": "JTT Fastighet & Konsult"
+            },
+            "serviceType": "Konsulttjänster",
+            "description": "Rådgivning inom teknisk förvaltning, upphandling, energioptimering och projektledning."
+          }
+        ]
+      }
+    </script>
+
+    <!-- ContactPoint Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JTT Fastighet & Konsult",
+        "url": "https://jttfastighet.se",
+        "logo": "https://jttfastighet.se/images/logos/logo_large.svg",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+46-10-207 80 89",
+            "contactType": "customer service",
+            "areaServed": "SE",
+            "availableLanguage": ["Swedish"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Skälbyvägen 13 B",
+          "postalCode": "155 35",
+          "addressLocality": "Nykvarn",
+          "addressCountry": "SE"
+        },
+        "sameAs": ["https://www.linkedin.com/company/jtt-fastighet-konsult"]
+      }
+    </script>
   </body>
 </html>
