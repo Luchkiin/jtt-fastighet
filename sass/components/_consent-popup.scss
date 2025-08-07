@@ -1,5 +1,33 @@
 @use "../abstracts/" as *;
 
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+.cookie-consent,
+.cookie-overlay {
+  pointer-events: auto;
+}
+
 .cookie-consent {
   position: fixed;
   bottom: 24px;
@@ -14,19 +42,22 @@
   border-radius: 8px;
   opacity: 0;
   transform: translateY(250px);
-  transition: transform 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 600ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 600ms ease;
   pointer-events: none;
 
   &.visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    transition-delay: 250ms;
   }
 
   &.hide {
     opacity: 0;
     transform: translateY(250px);
     pointer-events: none;
+    transition-delay: 0ms;
   }
 
   p {
@@ -52,9 +83,9 @@
     gap: 8px;
     width: 100%;
     .small {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
   }
 }

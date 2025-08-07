@@ -3,25 +3,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const cookieBox = document.getElementById("cookie-consent");
   const acceptBtn = document.getElementById("accept-cookies");
   const declineBtn = document.getElementById("decline-cookies");
-
+  const cookieOverlay = document.getElementById("cookie-overlay");
   const consent = localStorage.getItem("cookieConsent");
 
   if (!consent) {
     setTimeout(() => {
       cookieBox.classList.add("visible");
-    }, 750); //r
+      cookieOverlay.classList.remove("hidden");
+      cookieOverlay.classList.add("visible");
+      cookieOverlay.classList.remove("hide");
+    }, 750);
+  } else {
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.classList.add("hide");
+    cookieOverlay.classList.add("hidden");
   }
 
-  const handleConsent = (choice) => {
-    localStorage.setItem("cookieConsent", choice);
-
+  function hideCookieUI() {
     cookieBox.classList.remove("visible");
     cookieBox.classList.add("hide");
 
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.classList.add("hide");
+
     setTimeout(() => {
       cookieBox.style.display = "none";
+      cookieOverlay.classList.add("hidden");
     }, 600);
-  };
+  }
+
+  function handleConsent(choice) {
+    localStorage.setItem("cookieConsent", choice);
+    hideCookieUI();
+  }
 
   acceptBtn.addEventListener("click", () => {
     handleConsent("accepted");
@@ -73,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Ta bort tabindex efteråt (för tillgänglighet)
       setTimeout(() => {
-      mainContent.removeAttribute("tabindex");
+        mainContent.removeAttribute("tabindex");
       }, 1000);
     });
   }
