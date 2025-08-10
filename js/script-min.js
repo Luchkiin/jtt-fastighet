@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const yearMobile = new Date().getFullYear();
   document.getElementById(
     "copyright-mobile"
-  ).textContent = `© JTT Konsult & Fastighet AB ${yearMobile}`;
+  ).textContent = `© JTT Fastighet & Konsult AB ${yearMobile}`;
 
   // Accordion med bilder
   const accordions = document.querySelectorAll(".accordion");

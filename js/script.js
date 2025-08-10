@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const year = new Date().getFullYear();
   document.getElementById(
     "copyright"
-  ).textContent = `© JTT Konsult & Fastighet AB ${year}`;
+  ).textContent = `© JTT Fastighet & Konsult AB ${year}`;
 
   const yearMobile = new Date().getFullYear();
   document.getElementById(
