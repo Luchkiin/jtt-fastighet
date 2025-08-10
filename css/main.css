@@ -195,6 +195,18 @@ p {
   }
 }
 
+sup {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: initial;
+  padding-left: 1px;
+}
+
+.first-sup {
+  padding-right: 3px;
+  padding-left: 0;
+}
+
 .p-margin-bottom {
   margin-bottom: 24px;
 }
@@ -1242,6 +1254,9 @@ button.btn.btn-medium {
   .container__cookie-policy .inner-wrapper .chapters .chapter a {
     font-size: 0.875rem;
   }
+}
+.container__cookie-policy .inner-wrapper .chapters .chapter button {
+  width: fit-content;
 }
 .container__cookie-policy .inner-wrapper .chapters .chapter .contact-info-wrapper {
   margin-top: 8px;

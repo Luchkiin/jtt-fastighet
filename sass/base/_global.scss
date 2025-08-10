@@ -105,6 +105,18 @@ p {
   }
 }
 
+sup {
+  font-size: 12px;
+  font-weight: $regular-weight;
+  line-height: initial;
+  padding-left: 1px;
+}
+
+.first-sup {
+  padding-right: 3px;
+  padding-left: 0;
+}
+
 .p-margin-bottom {
   margin-bottom: $spacing-s;
 }

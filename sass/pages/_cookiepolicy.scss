@@ -99,6 +99,9 @@
             font-size: $fontSize-14;
           }
         }
+        button {
+          width: fit-content;
+        }
         .contact-info-wrapper {
           margin-top: $spacing-xxs;
           display: flex;
