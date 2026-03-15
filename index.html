@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
   <head>
     <!-- Metadata -->
@@ -102,11 +102,7 @@
       </button>
     </div>
     <header class="header" id="header" data-stagger data-stagger-step="90">
-      <div
-        class="header__logo-wrapper"
-        data-reveal="load"
-        data-header-reveal
-      >
+      <div class="header__logo-wrapper" data-reveal="load" data-header-reveal>
         <a href="/" class="header__logo logo__desktop">
           <img
             src="images/logos/logo_large.svg"
@@ -165,7 +161,7 @@
       </button>
       <!-- Mobile Navigation -->
       <nav
-        class="navigation__mobile no-scroll"
+        class="navigation__mobile"
         id="mobile-nav"
         aria-label="Mobilemny, huvudmeny"
       >
@@ -191,12 +187,20 @@
           </button>
         </div>
         <div class="navigation__wrapper">
-          <a href="#om-oss" class="navigation-link">Om oss</a>
-          <a href="#vara-tjanster" class="navigation-link">Våra tjänster</a>
-          <a href="#varfor-valja-oss" class="navigation-link"
-            >Varför välja oss?</a
-          >
-          <a href="#kontakta-oss" class="navigation-link">Kontakta oss</a>
+          <div class="navigation__link-wrapper">
+            <a href="#om-oss" class="navigation-link">Om oss</a>
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#vara-tjanster" class="navigation-link">Våra tjänster</a>
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#varfor-valja-oss" class="navigation-link"
+              >Varför välja oss?</a
+            >
+          </div>
+          <div class="navigation__link-wrapper">
+            <a href="#kontakta-oss" class="navigation-link">Kontakta oss</a>
+          </div>
         </div>
       </nav>
     </header>
@@ -222,7 +226,7 @@
           </div>
           <button
             class="button-primary large"
-            onclick="location.href='#kontakta-oss'"
+            onclick="location.href = '#kontakta-oss'"
             data-reveal="load"
             data-reveal-hero
           >
@@ -266,7 +270,12 @@
               </p>
             </div>
           </div>
-          <div class="images" data-stagger data-stagger-base="120" data-stagger-step="120">
+          <div
+            class="images"
+            data-stagger
+            data-stagger-base="120"
+            data-stagger-step="120"
+          >
             <div class="image" data-reveal>
               <img
                 src="images/about/about-image_01.jpg"
@@ -289,7 +298,12 @@
               />
             </div>
           </div>
-          <div class="usps" data-stagger data-stagger-base="160" data-stagger-step="110">
+          <div
+            class="usps"
+            data-stagger
+            data-stagger-base="160"
+            data-stagger-step="110"
+          >
             <article class="usp" data-reveal data-reveal-card>
               <div class="title-number"><h3>30+</h3></div>
               <div class="subtitle"><h4>Års erfarenhet</h4></div>
@@ -353,24 +367,40 @@
           <div class="accordions">
             <div class="accordions-wrapper" data-reveal>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Fastighetsservice & tekniskt underhåll</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-1"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-1"
+                  >
+                    <span class="accordion_title-text"
+                      >Fastighetsservice & tekniskt underhåll</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-1"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-1"
+                  aria-hidden="true"
+                >
                   <img
                     src="images/services/accordion-image_01.jpg"
                     class="accordion_image"
@@ -385,24 +415,40 @@
                 </div>
               </div>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Akuta och planerade reparationer</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-2"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-2"
+                  >
+                    <span class="accordion_title-text"
+                      >Akuta och planerade reparationer</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-2"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-2"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi hanterar både akuta fel och planerade åtgärder inom VVS,
                     el, snickeri och inomhusmiljöer. Oavsett om det handlar om
@@ -417,24 +463,40 @@
                 </div>
               </div>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Tillsyn, jour och felavhjälpning</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-3"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-3"
+                  >
+                    <span class="accordion_title-text"
+                      >Tillsyn, jour och felavhjälpning</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-3"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-3"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi erbjuder tillsyn och beredskap dygnet runt. Vår
                     jourpersonal är redo att agera vid fel, störningar och akuta
@@ -449,24 +511,40 @@
                 </div>
               </div>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Renovering och mindre entreprenadprojekt</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-4"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-4"
+                  >
+                    <span class="accordion_title-text"
+                      >Renovering och mindre entreprenadprojekt</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-4"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-4"
+                  aria-hidden="true"
+                >
                   <p>
                     Behöver du modernisera fastigheten, bygga om eller utföra
                     mindre projekt? Vi tar helhetsansvar för renovering och
@@ -481,24 +559,40 @@
                 </div>
               </div>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Avtalad tillsyn och förebyggande underhåll</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-5"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-5"
+                  >
+                    <span class="accordion_title-text"
+                      >Avtalad tillsyn och förebyggande underhåll</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-5"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-5"
+                  aria-hidden="true"
+                >
                   <p>
                     Med planerat underhåll och regelbunden kontroll minskar
                     risken för kostsamma skador och driftstörningar. Vi
@@ -513,24 +607,40 @@
                 </div>
               </div>
               <div class="accordion">
-                <div class="accordion_title">
-                  <h3 class="h4">Konsulttjänster inom fastighetsförvaltning</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="accordion_title"
+                    type="button"
+                    id="service-accordion-trigger-6"
+                    aria-expanded="false"
+                    aria-controls="service-accordion-content-6"
+                  >
+                    <span class="accordion_title-text"
+                      >Konsulttjänster inom fastighetsförvaltning</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="accordion_content"
+                  id="service-accordion-content-6"
+                  role="region"
+                  aria-labelledby="service-accordion-trigger-6"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi erbjuder rådgivning och stöd inom teknisk förvaltning,
                     upphandlingar, energifrågor och projektledning. Vår expertis
@@ -571,7 +681,12 @@
                 </p>
               </div>
             </div>
-            <div class="subititle-text-button" data-stagger data-stagger-base="120" data-stagger-step="110">
+            <div
+              class="subititle-text-button"
+              data-stagger
+              data-stagger-base="120"
+              data-stagger-step="110"
+            >
               <div class="subtitle" data-reveal>
                 <h3 class="h4">Är du intresserad av att veta mer?</h3>
               </div>
@@ -583,7 +698,7 @@
               </div>
               <button
                 class="button-primary large"
-                onclick="location.href='#kontakta-oss'"
+                onclick="location.href = '#kontakta-oss'"
                 data-reveal
               >
                 <div class="button-text">Kontakta oss</div>
@@ -606,7 +721,12 @@
             </div>
           </div>
           <div class="usp-cards" data-reveal>
-            <div class="usp-cards__inner-wrapper" data-stagger data-stagger-base="140" data-stagger-step="120">
+            <div
+              class="usp-cards__inner-wrapper"
+              data-stagger
+              data-stagger-base="140"
+              data-stagger-step="120"
+            >
               <article class="usp-card" data-reveal data-reveal-card>
                 <div class="usp-card__number">
                   <h4 class="title-number">01</h4>
@@ -676,7 +796,12 @@
               </article>
             </div>
           </div>
-          <div class="subititle-text-button last-element" data-stagger data-stagger-base="120" data-stagger-step="110">
+          <div
+            class="subititle-text-button last-element"
+            data-stagger
+            data-stagger-base="120"
+            data-stagger-step="110"
+          >
             <div class="subtitle" data-reveal>
               <h3 class="h4">Är du intresserad av att veta mer?</h3>
             </div>
@@ -688,7 +813,7 @@
             </div>
             <button
               class="button-primary large"
-              onclick="location.href='#kontakta-oss'"
+              onclick="location.href = '#kontakta-oss'"
               data-reveal
             >
               <div class="button-text">Kontakta oss</div>
@@ -726,24 +851,40 @@
           <div class="text-accordions" data-reveal>
             <div class="text-accordions-wrapper">
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Vad erbjuder vi för tjänster?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-1"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-1"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Vad erbjuder vi för tjänster?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-1"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-1"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi erbjuder helhetslösningar för fastigheter från löpande
                     fastighetsskötsel och tekniskt underhåll till byggtjänster,
@@ -754,24 +895,40 @@
               </div>
 
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Är ni tillgängliga dygnet runt?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-2"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-2"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Är ni tillgängliga dygnet runt?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-2"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-2"
+                  aria-hidden="true"
+                >
                   <p>
                     Ja! Vår jourservice är öppen 24/7 året om. Vi finns
                     tillgängliga vid akuta situationer som vattenläckor, elfel,
@@ -780,24 +937,40 @@
                 </div>
               </div>
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Vilken typ av kunder arbetar ni med?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-3"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-3"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Vilken typ av kunder arbetar ni med?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-3"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-3"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi arbetar med fastighetsägare, bostadsrättsföreningar,
                     kommersiella fastigheter, förvaltare och företag. Oavsett
@@ -807,24 +980,40 @@
                 </div>
               </div>
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Var är ni verksamma?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-4"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-4"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Var är ni verksamma?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-4"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-4"
+                  aria-hidden="true"
+                >
                   <p>
                     Vi utgår från Nykvarn och är verksamma i hela
                     Stockholmsregionen med omnejd. Tveka inte att kontakta oss
@@ -833,24 +1022,40 @@
                 </div>
               </div>
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Kan jag få en kostnadsfri offert?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-5"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-5"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Kan jag få en kostnadsfri offert?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-5"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-5"
+                  aria-hidden="true"
+                >
                   <p>
                     Ja, vi erbjuder kostnadsfri rådgivning och offert. Fyll i
                     kontaktformuläret nedan eller ring oss på
@@ -865,24 +1070,40 @@
                 </div>
               </div>
               <div class="text-accordion">
-                <div class="text-accordion_title">
-                  <h3 class="h4">Är ni försäkrade och certifierade?</h3>
-                  <div class="icon">
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <h3 class="h4">
+                  <button
+                    class="text-accordion_title"
+                    type="button"
+                    id="faq-accordion-trigger-6"
+                    aria-expanded="false"
+                    aria-controls="faq-accordion-content-6"
+                  >
+                    <span class="text-accordion_title-text"
+                      >Är ni försäkrade och certifierade?</span
                     >
-                      <path
-                        d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="text-accordion_content">
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 36 36"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.51924 14.5998L11.1 13.019L18 19.919L24.9 13.019L26.4807 14.5998L18 23.0805L9.51924 14.5998Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  class="text-accordion_content"
+                  id="faq-accordion-content-6"
+                  role="region"
+                  aria-labelledby="faq-accordion-trigger-6"
+                  aria-hidden="true"
+                >
                   <p>
                     Absolut. Vi arbetar enligt branschens krav och riktlinjer
                     och samarbetar med etablerade aktörer. Vår personal har rätt
@@ -911,7 +1132,12 @@
                 </div>
               </div>
             </div>
-            <div class="contact-info-wrapper" data-stagger data-stagger-base="120" data-stagger-step="100">
+            <div
+              class="contact-info-wrapper"
+              data-stagger
+              data-stagger-base="120"
+              data-stagger-step="100"
+            >
               <div class="contact-info__location" data-reveal>
                 <h3 class="h5">Kontor</h3>
                 <p>
@@ -980,7 +1206,12 @@
               </div>
             </div>
           </div>
-          <form class="contact-form" id="contact-form" data-reveal data-reveal-card>
+          <form
+            class="contact-form"
+            id="contact-form"
+            data-reveal
+            data-reveal-card
+          >
             <label for="name">Namn</label>
             <span id="name-desc" class="visually-hidden"
               >Skriv in ditt för- och efternamn med endast bokstäver.</span
@@ -1051,7 +1282,12 @@
       </section>
     </main>
     <footer class="footer">
-      <div class="inner-wrapper" data-stagger data-stagger-base="120" data-stagger-step="100">
+      <div
+        class="inner-wrapper"
+        data-stagger
+        data-stagger-base="120"
+        data-stagger-step="100"
+      >
         <div class="footer_logo-copyright" data-reveal>
           <div class="footer__logo">
             <a href="#hero">

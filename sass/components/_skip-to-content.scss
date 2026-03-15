@@ -3,8 +3,8 @@
 .skip-to-content-link {
   position: absolute;
   top: 0;
-  left: 14px;
-  transform: translateY(-100%);
+  left: 50%;
+  transform: translate(-50%, -100%);
   font-size: $fontSize-14;
   font-weight: $semiBold-weight;
   letter-spacing: $letterSpacing-025;
@@ -19,16 +19,11 @@
   white-space: nowrap;
 
   &:focus {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
     opacity: 1;
     pointer-events: auto;
-    left: 14px;
     top: 14px;
     z-index: 9999;
     border-radius: 36px;
   }
-}
-
-main:focus {
-  outline: none;
 }

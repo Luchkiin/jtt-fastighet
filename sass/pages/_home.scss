@@ -96,9 +96,7 @@
     background-size: cover;
     background-position: center;
     height: 100%;
-        min-height: calc(
-      100vh - 149px
-    ); // Fallback
+    min-height: calc(100vh - 149px); // Fallback
     min-height: calc(
       100dvh - 149px
     ); // Height of header (101px) and margin bottom (48px)
@@ -112,9 +110,7 @@
       max-width: none;
     }
     @include for-tablet() {
-            min-height: calc(
-        100vh - 133px
-      ); // fallback
+      min-height: calc(100vh - 133px); // fallback
       min-height: calc(
         100dvh - 133px
       ); // Height of header (85px) and margin bottom (48px)
@@ -122,9 +118,7 @@
     @include for-mobile() {
       background-image: url("../images/hero/hero-small-portrait.jpg");
       background-position: center top;
-            min-height: calc(
-        100vh - 88px
-      ); // Fallback
+      min-height: calc(100vh - 88px); // Fallback
       min-height: calc(
         100dvh - 88px
       ); // Height of header (62px) and margin bottom (24px)
@@ -557,12 +551,15 @@
           &:before {
             opacity: 0;
             transform: translateY(-$menu-link-distance);
-            transition: transform 0s $cubic-bezier, opacity 0s;
+            transition:
+              transform 0s $cubic-bezier,
+              opacity 0s;
           }
           &:after {
             opacity: 0;
             transform: calc($menu-link-distance / 2);
-            transition: transform $menu-link-duration $cubic-bezier,
+            transition:
+              transform $menu-link-duration $cubic-bezier,
               opacity $menu-link-duration;
           }
           &:hover,
@@ -573,11 +570,13 @@
               transform: translateY(0);
             }
             &:before {
-              transition: transform $menu-link-duration $cubic-bezier,
+              transition:
+                transform $menu-link-duration $cubic-bezier,
                 opacity $menu-link-duration;
             }
             &:after {
-              transition: transform 0s $menu-link-duration $cubic-bezier,
+              transition:
+                transform 0s $menu-link-duration $cubic-bezier,
                 opacity 0s $menu-link-duration;
             }
           }
@@ -600,6 +599,13 @@
         }
         .social-media-icon {
           display: flex;
+          height: 40px;
+          a {
+            &:focus-visible {
+              border-radius: 9px;
+              overflow: hidden;
+            }
+          }
           @include for-mobile() {
             width: 36px;
             height: 36px;

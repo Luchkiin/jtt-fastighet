@@ -15,7 +15,7 @@
 
   const setStaggerDelays = (container) => {
     const children = Array.from(container.children).filter((child) =>
-      child.hasAttribute("data-reveal")
+      child.hasAttribute("data-reveal"),
     );
 
     const base = Number(container.dataset.staggerBase ?? 220);
@@ -28,7 +28,7 @@
 
   const showPage = () => {
     qsa("[data-page]").forEach((element) =>
-      element.classList.add("is-page-visible")
+      element.classList.add("is-page-visible"),
     );
   };
 
@@ -82,7 +82,10 @@
 
       observer.observe(element);
 
-      if (isInViewNow(element) && element.getAttribute("data-revealed") !== "true") {
+      if (
+        isInViewNow(element) &&
+        element.getAttribute("data-revealed") !== "true"
+      ) {
         reveal(element);
         observer.unobserve(element);
       }
@@ -118,7 +121,9 @@
     const acceptButton = document.getElementById("accept-cookies");
     const declineButton = document.getElementById("decline-cookies");
     const cookieOverlay = document.getElementById("cookie-overlay");
-    const changeConsentButton = document.getElementById("change-cookie-consent");
+    const changeConsentButton = document.getElementById(
+      "change-cookie-consent",
+    );
     const consent = localStorage.getItem("cookieConsent");
 
     if (!cookieBox || !cookieOverlay) return;
@@ -203,7 +208,7 @@
         () => {
           banner.remove();
         },
-        { once: true }
+        { once: true },
       );
     };
 
@@ -300,18 +305,24 @@
     const accordionImages = document.querySelector(".accordion_images");
 
     const openAccordion = (accordion) => {
+      const trigger = accordion.querySelector(".accordion_title");
       const content = accordion.querySelector(".accordion_content");
-      if (!content) return;
+      if (!trigger || !content) return;
 
       accordion.classList.add("accordion_active");
+      trigger.setAttribute("aria-expanded", "true");
+      content.setAttribute("aria-hidden", "false");
       content.style.maxHeight = `${content.scrollHeight}px`;
     };
 
     const closeAccordion = (accordion) => {
+      const trigger = accordion.querySelector(".accordion_title");
       const content = accordion.querySelector(".accordion_content");
-      if (!content) return;
+      if (!trigger || !content) return;
 
       accordion.classList.remove("accordion_active");
+      trigger.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
       content.style.maxHeight = null;
     };
 
@@ -325,12 +336,10 @@
 
     accordions.forEach((accordion, index) => {
       const trigger = accordion.querySelector(".accordion_title");
-      const content = accordion.querySelector(".accordion_content");
-
-      if (!trigger || !content) return;
+      if (!trigger) return;
 
       trigger.addEventListener("click", () => {
-        const isActive = Boolean(content.style.maxHeight);
+        const isActive = accordion.classList.contains("accordion_active");
 
         accordions.forEach(closeAccordion);
 
@@ -351,28 +360,32 @@
     const accordions = qsa(".text-accordion");
 
     const openAccordion = (accordion) => {
+      const trigger = accordion.querySelector(".text-accordion_title");
       const content = accordion.querySelector(".text-accordion_content");
-      if (!content) return;
+      if (!trigger || !content) return;
 
       accordion.classList.add("text-accordion_active");
+      trigger.setAttribute("aria-expanded", "true");
+      content.setAttribute("aria-hidden", "false");
       content.style.maxHeight = `${content.scrollHeight}px`;
     };
 
     const closeAccordion = (accordion) => {
+      const trigger = accordion.querySelector(".text-accordion_title");
       const content = accordion.querySelector(".text-accordion_content");
-      if (!content) return;
+      if (!trigger || !content) return;
 
       accordion.classList.remove("text-accordion_active");
+      trigger.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
       content.style.maxHeight = null;
     };
 
     accordions.forEach((accordion) => {
-      const content = accordion.querySelector(".text-accordion_content");
-      if (!content) return;
+      const trigger = accordion.querySelector(".text-accordion_title");
+      if (!trigger) return;
 
-      accordion.addEventListener("click", (event) => {
-        if (event.target.closest(".text-accordion_content")) return;
-
+      trigger.addEventListener("click", () => {
         const isActive = accordion.classList.contains("text-accordion_active");
 
         if (isActive) {
@@ -411,7 +424,7 @@
       status.textContent = "";
       status.classList.remove("visible");
       [nameField, phoneField, emailField, messageField].forEach((field) =>
-        field.classList.remove("invalid")
+        field.classList.remove("invalid"),
       );
 
       const nameRegex = /^[A-Za-zÅÄÖåäö\s\-]+$/;
@@ -491,14 +504,41 @@
 
     if (!menu) return;
 
+    const menuItems = qsa(".navigation__mobile .navigation__link-wrapper");
+
+    const setMenuStaggerDelays = () => {
+      const base = 120;
+      const step = 90;
+
+      menuItems.forEach((item, index) => {
+        item.style.setProperty("--stagger-delay", `${base + index * step}ms`);
+      });
+    };
+
+    const resetMenuItems = () => {
+      menuItems.forEach((item) => {
+        item.style.removeProperty("--stagger-delay");
+      });
+    };
+
     const openMenu = () => {
+      setMenuStaggerDelays();
       menu.classList.add("open");
       body.classList.add("no-scroll");
+      toggleButton?.setAttribute("aria-expanded", "true");
     };
 
     const closeMenu = () => {
       menu.classList.remove("open");
       body.classList.remove("no-scroll");
+      toggleButton?.setAttribute("aria-expanded", "false");
+
+      // vänta tills stäng-animationen är klar innan vi nollställer inline delays
+      window.setTimeout(() => {
+        if (!menu.classList.contains("open")) {
+          resetMenuItems();
+        }
+      }, 400);
     };
 
     if (toggleButton) {
@@ -509,9 +549,19 @@
       closeButton.addEventListener("click", closeMenu);
     }
 
-    qsa(".navigation-link").forEach((link) => {
+    qsa(".navigation-link", menu).forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.classList.contains("open")) {
+        closeMenu();
+      }
+    });
+
+    if (prefersReducedMotion) {
+      resetMenuItems();
+    }
   };
 
   const initSiteFeatures = () => {

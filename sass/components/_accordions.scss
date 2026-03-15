@@ -23,12 +23,21 @@
       width: 100%;
       overflow: hidden;
       border-bottom: 1px solid $grey;
+      > .h4 {
+        margin: 0;
+      }
       .accordion_title {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: $spacing-xl;
         position: relative;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        font: inherit;
+        color: inherit;
         padding: $spacing-s 0;
         @include for-laptop() {
           gap: $spacing-s;
@@ -37,7 +46,13 @@
           padding: 20px 0;
         }
         cursor: pointer;
-        h3 {
+        &:focus-visible {
+          outline: 2px solid $secondary-blue-500;
+          outline-offset: -2px;
+          border-radius: 4px;
+        }
+        .accordion_title-text {
+          flex: 1;
           color: $black;
           font-size: $fontSize-26;
           font-weight: $semiBold-weight;
@@ -53,6 +68,7 @@
           transition: $transition-500;
           height: 36px;
           width: 36px;
+          flex-shrink: 0;
           @include for-mobile() {
             height: 30px;
             width: 30px;
@@ -179,6 +195,9 @@
     width: 100%;
     overflow: hidden;
     border-bottom: 1px solid $grey;
+    > .h4 {
+      margin: 0;
+    }
 
     .text-accordion_title {
       display: flex;
@@ -186,12 +205,24 @@
       align-items: center;
       gap: $spacing-xl;
       position: relative;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      font: inherit;
+      color: inherit;
       padding: $spacing-s 0;
       cursor: pointer;
       @include for-mobile() {
         padding: 20px 0;
       }
-      h3 {
+      &:focus-visible {
+        outline: 2px solid $secondary-blue-500;
+        outline-offset: -2px;
+        border-radius: 4px;
+      }
+      .text-accordion_title-text {
+        flex: 1;
         color: $black;
         font-size: $fontSize-26;
         font-weight: $semiBold-weight;
@@ -209,6 +240,7 @@
         transition: $transition-500;
         height: 36px;
         width: 36px;
+        flex-shrink: 0;
         @include for-mobile() {
           height: 30px;
           width: 30px;
