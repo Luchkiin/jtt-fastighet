@@ -1,83 +1,225 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Cookie consent popup
-  const cookieBox = document.getElementById("cookie-consent");
-  const acceptBtn = document.getElementById("accept-cookies");
-  const declineBtn = document.getElementById("decline-cookies");
-  const cookieOverlay = document.getElementById("cookie-overlay");
-  const consent = localStorage.getItem("cookieConsent");
+(() => {
+  const html = document.documentElement;
+  const prefersReducedMotion =
+    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
-  if (!consent) {
-    setTimeout(() => {
-      cookieBox.classList.add("visible");
-      cookieOverlay.classList.remove("hidden");
-      cookieOverlay.classList.add("visible");
-      cookieOverlay.classList.remove("hide");
-    }, 750);
-  } else {
-    cookieOverlay.classList.remove("visible");
-    cookieOverlay.classList.add("hide");
-    cookieOverlay.classList.add("hidden");
-  }
+  html.classList.add("js");
 
-  function hideCookieUI() {
-    cookieBox.classList.remove("visible");
-    cookieBox.classList.add("hide");
+  const qsa = (selector, root = document) =>
+    Array.from(root.querySelectorAll(selector));
 
-    cookieOverlay.classList.remove("visible");
-    cookieOverlay.classList.add("hide");
+  const reveal = (element) => {
+    element.classList.add("is-revealed");
+    element.setAttribute("data-revealed", "true");
+  };
 
-    setTimeout(() => {
-      cookieBox.style.display = "none";
-      cookieOverlay.classList.add("hidden");
-    }, 600);
-  }
-
-  function handleConsent(choice) {
-    localStorage.setItem("cookieConsent", choice);
-    hideCookieUI();
-  }
-
-  acceptBtn.addEventListener("click", () => {
-    handleConsent("accepted");
-  });
-
-  declineBtn.addEventListener("click", () => {
-    handleConsent("declined");
-  });
-
-  // Status banner
-  const banner = document.getElementById("status-banner");
-  const closeBannerBtn = document.getElementById("close-banner");
-  if (!banner) return;
-
-  setTimeout(() => {
-    banner.classList.add("visible");
-  }, 250);
-
-  function hideBanner() {
-    banner.classList.remove("visible");
-    banner.classList.add("hidden");
-
-    banner.addEventListener(
-      "transitionend",
-      () => {
-        banner.remove();
-      },
-      { once: true }
+  const setStaggerDelays = (container) => {
+    const children = Array.from(container.children).filter((child) =>
+      child.hasAttribute("data-reveal")
     );
-  }
 
-  if (closeBannerBtn) {
-    closeBannerBtn.addEventListener("click", hideBanner);
-  }
+    const base = Number(container.dataset.staggerBase ?? 220);
+    const step = Number(container.dataset.staggerStep ?? 120);
 
-  // Skip to content
-  const skipLink = document.getElementById("skip-to-content");
-  const mainContent = document.getElementById("main-content");
+    children.forEach((child, index) => {
+      child.style.setProperty("--reveal-delay", `${base + index * step}ms`);
+    });
+  };
 
-  if (skipLink && mainContent) {
-    skipLink.addEventListener("click", function (e) {
-      e.preventDefault();
+  const showPage = () => {
+    qsa("[data-page]").forEach((element) =>
+      element.classList.add("is-page-visible")
+    );
+  };
+
+  const revealOnLoad = () => {
+    qsa('[data-reveal="load"]').forEach(reveal);
+  };
+
+  const isInViewNow = (element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+  };
+
+  const setupScrollReveal = () => {
+    const scrollElements = qsa('[data-reveal]:not([data-reveal="load"])');
+
+    if (!("IntersectionObserver" in window)) {
+      scrollElements.forEach(reveal);
+      return;
+    }
+
+    const createObserver = (options) =>
+      new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const element = entry.target;
+          if (element.getAttribute("data-revealed") === "true") {
+            observer.unobserve(element);
+            return;
+          }
+
+          reveal(element);
+          observer.unobserve(element);
+        });
+      }, options);
+
+    const defaultObserver = createObserver({
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px",
+    });
+
+    const footerObserver = createObserver({
+      threshold: 0.05,
+      rootMargin: "0px 0px 20% 0px",
+    });
+
+    scrollElements.forEach((element) => {
+      const observer = element.closest("footer")
+        ? footerObserver
+        : defaultObserver;
+
+      observer.observe(element);
+
+      if (isInViewNow(element) && element.getAttribute("data-revealed") !== "true") {
+        reveal(element);
+        observer.unobserve(element);
+      }
+    });
+  };
+
+  const startRevealSystem = () => {
+    qsa("[data-stagger]").forEach(setStaggerDelays);
+    html.classList.add("is-loaded");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        showPage();
+        revealOnLoad();
+      });
+    });
+  };
+
+  const initRevealSystem = () => {
+    if (prefersReducedMotion) {
+      html.classList.add("is-loaded");
+      showPage();
+      qsa("[data-reveal]").forEach(reveal);
+      return;
+    }
+
+    setupScrollReveal();
+    startRevealSystem();
+  };
+
+  const initCookieConsent = () => {
+    const cookieBox = document.getElementById("cookie-consent");
+    const acceptButton = document.getElementById("accept-cookies");
+    const declineButton = document.getElementById("decline-cookies");
+    const cookieOverlay = document.getElementById("cookie-overlay");
+    const changeConsentButton = document.getElementById("change-cookie-consent");
+    const consent = localStorage.getItem("cookieConsent");
+
+    if (!cookieBox || !cookieOverlay) return;
+
+    if (!consent) {
+      setTimeout(() => {
+        cookieBox.classList.add("visible");
+        cookieOverlay.classList.remove("hidden");
+        cookieOverlay.classList.add("visible");
+        cookieOverlay.classList.remove("hide");
+      }, 750);
+    } else {
+      cookieOverlay.classList.remove("visible");
+      cookieOverlay.classList.add("hide");
+      cookieOverlay.classList.add("hidden");
+    }
+
+    const hideCookieUI = () => {
+      cookieBox.classList.remove("visible");
+      cookieBox.classList.add("hide");
+
+      cookieOverlay.classList.remove("visible");
+      cookieOverlay.classList.add("hide");
+
+      setTimeout(() => {
+        cookieBox.style.display = "none";
+        cookieOverlay.classList.add("hidden");
+      }, 600);
+    };
+
+    const handleConsent = (choice) => {
+      localStorage.setItem("cookieConsent", choice);
+      hideCookieUI();
+    };
+
+    if (acceptButton) {
+      acceptButton.addEventListener("click", () => {
+        handleConsent("accepted");
+      });
+    }
+
+    if (declineButton) {
+      declineButton.addEventListener("click", () => {
+        handleConsent("declined");
+      });
+    }
+
+    if (changeConsentButton) {
+      changeConsentButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        localStorage.removeItem("cookieConsent");
+
+        cookieBox.style.display = "block";
+        cookieOverlay.classList.remove("hidden");
+        cookieOverlay.classList.remove("hide");
+        cookieOverlay.classList.add("visible");
+
+        setTimeout(() => {
+          cookieBox.classList.add("visible");
+          cookieBox.classList.remove("hide");
+        }, 100);
+      });
+    }
+  };
+
+  const initStatusBanner = () => {
+    const banner = document.getElementById("status-banner");
+    const closeButton = document.getElementById("close-banner");
+
+    if (!banner) return;
+
+    setTimeout(() => {
+      banner.classList.add("visible");
+    }, 250);
+
+    const hideBanner = () => {
+      banner.classList.remove("visible");
+      banner.classList.add("hidden");
+
+      banner.addEventListener(
+        "transitionend",
+        () => {
+          banner.remove();
+        },
+        { once: true }
+      );
+    };
+
+    if (closeButton) {
+      closeButton.addEventListener("click", hideBanner);
+    }
+  };
+
+  const initSkipToContent = () => {
+    const skipLink = document.getElementById("skip-to-content");
+    const mainContent = document.getElementById("main-content");
+
+    if (!skipLink || !mainContent) return;
+
+    skipLink.addEventListener("click", (event) => {
+      event.preventDefault();
       mainContent.setAttribute("tabindex", "-1");
       mainContent.focus();
 
@@ -85,12 +227,13 @@ document.addEventListener("DOMContentLoaded", function () {
         mainContent.removeAttribute("tabindex");
       }, 1000);
     });
-  }
+  };
 
-  // Sticky header
-  const header = document.getElementById("header");
+  const initStickyHeader = () => {
+    const header = document.getElementById("header");
 
-  if (header) {
+    if (!header) return;
+
     window.addEventListener("scroll", () => {
       if (window.scrollY > 24) {
         header.classList.add("scrolled");
@@ -98,141 +241,162 @@ document.addEventListener("DOMContentLoaded", function () {
         header.classList.remove("scrolled");
       }
     });
-  }
+  };
 
-  const stickyHeader = document.getElementById("header");
-  const mobileMenu = document.getElementById("mobile-nav");
-  const bodyMenu = document.body;
+  const initSmoothScroll = () => {
+    const stickyHeader = document.getElementById("header");
+    const mobileMenu = document.getElementById("mobile-nav");
+    const body = document.body;
 
-  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href").substring(1);
-      const targetEl = document.getElementById(targetId);
-      if (!targetEl) return;
+    qsa('a[href^="#"]:not([href="#"])').forEach((link) => {
+      link.addEventListener("click", function (event) {
+        const targetId = this.getAttribute("href")?.substring(1);
+        if (!targetId) return;
 
-      e.preventDefault();
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
 
-      requestAnimationFrame(() => {
-        const headerHeight = stickyHeader.getBoundingClientRect().height;
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerHeight;
+        event.preventDefault();
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
+        requestAnimationFrame(() => {
+          const headerHeight = stickyHeader
+            ? stickyHeader.getBoundingClientRect().height
+            : 0;
+          const offsetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
         });
+
+        if (mobileMenu?.classList.contains("open")) {
+          mobileMenu.classList.remove("open");
+          body.classList.remove("no-scroll");
+        }
       });
-
-      // 4. Stäng mobilmenyn om den är öppen
-      if (mobileMenu.classList.contains("open")) {
-        mobileMenu.classList.remove("open");
-        bodyMenu.classList.remove("no-scroll");
-      }
-    });
-  });
-
-  // Copyright text
-  const year = new Date().getFullYear();
-  document.getElementById(
-    "copyright"
-  ).textContent = `© JTT Fastighet & Konsult AB ${year}`;
-
-  const yearMobile = new Date().getFullYear();
-  document.getElementById(
-    "copyright-mobile"
-  ).textContent = `© JTT Konsult & Fastighet AB ${yearMobile}`;
-
-  // Accordion med bilder
-  const accordions = document.querySelectorAll(".accordion");
-  const accordionImages = document.querySelector(".accordion_images");
-
-  const openAccordion = (accordion) => {
-    const content = accordion.querySelector(".accordion_content");
-    if (!content) return;
-    accordion.classList.add("accordion_active");
-    content.style.maxHeight = content.scrollHeight + "px";
-  };
-
-  const closeAccordion = (accordion) => {
-    const content = accordion.querySelector(".accordion_content");
-    if (!content) return;
-    accordion.classList.remove("accordion_active");
-    content.style.maxHeight = null;
-  };
-
-  const activateImages = (index) => {
-    if (!accordionImages) return;
-    const images = accordionImages.querySelectorAll("img");
-    images.forEach((img, i) => {
-      img.classList.toggle("active", i === index);
     });
   };
 
-  accordions.forEach((accordion, index) => {
-    const intro = accordion.querySelector(".accordion_title");
-    const content = accordion.querySelector(".accordion_content");
+  const initCopyright = () => {
+    const year = new Date().getFullYear();
+    const desktopCopyright = document.getElementById("copyright");
+    const mobileCopyright = document.getElementById("copyright-mobile");
 
-    if (!intro || !content) return;
+    if (desktopCopyright) {
+      desktopCopyright.textContent = `© JTT Fastighet & Konsult AB ${year}`;
+    }
 
-    intro.onclick = () => {
-      const isActive = content.style.maxHeight;
-      accordions.forEach((accordion) => closeAccordion(accordion));
-      if (!isActive) {
-        openAccordion(accordion);
-        activateImages(index);
-      }
-    };
-  });
-
-  if (accordions.length > 0) {
-    openAccordion(accordions[0]);
-    activateImages(0);
-  }
-
-  // Accordion med text
-  const textAccordions = document.querySelectorAll(".text-accordion");
-
-  const openTextAccordion = (accordion) => {
-    const content = accordion.querySelector(".text-accordion_content");
-    if (!content) return;
-    accordion.classList.add("text-accordion_active");
-    content.style.maxHeight = content.scrollHeight + "px";
+    if (mobileCopyright) {
+      mobileCopyright.textContent = `© JTT Konsult & Fastighet AB ${year}`;
+    }
   };
 
-  const closeTextAccordion = (accordion) => {
-    const content = accordion.querySelector(".text-accordion_content");
-    if (!content) return;
-    accordion.classList.remove("text-accordion_active");
-    content.style.maxHeight = null;
+  const initAccordions = () => {
+    const accordions = qsa(".accordion");
+    const accordionImages = document.querySelector(".accordion_images");
+
+    const openAccordion = (accordion) => {
+      const content = accordion.querySelector(".accordion_content");
+      if (!content) return;
+
+      accordion.classList.add("accordion_active");
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    };
+
+    const closeAccordion = (accordion) => {
+      const content = accordion.querySelector(".accordion_content");
+      if (!content) return;
+
+      accordion.classList.remove("accordion_active");
+      content.style.maxHeight = null;
+    };
+
+    const activateImages = (index) => {
+      if (!accordionImages) return;
+
+      qsa("img", accordionImages).forEach((image, imageIndex) => {
+        image.classList.toggle("active", imageIndex === index);
+      });
+    };
+
+    accordions.forEach((accordion, index) => {
+      const trigger = accordion.querySelector(".accordion_title");
+      const content = accordion.querySelector(".accordion_content");
+
+      if (!trigger || !content) return;
+
+      trigger.addEventListener("click", () => {
+        const isActive = Boolean(content.style.maxHeight);
+
+        accordions.forEach(closeAccordion);
+
+        if (!isActive) {
+          openAccordion(accordion);
+          activateImages(index);
+        }
+      });
+    });
+
+    if (accordions.length > 0) {
+      openAccordion(accordions[0]);
+      activateImages(0);
+    }
   };
 
-  textAccordions.forEach((accordion) => {
-    const content = accordion.querySelector(".text-accordion_content");
-    if (!content) return;
+  const initTextAccordions = () => {
+    const accordions = qsa(".text-accordion");
 
-    accordion.onclick = (e) => {
-      if (e.target.closest(".text-accordion_content")) return;
-      const isActive = accordion.classList.contains("text-accordion_active");
-      if (isActive) {
-        closeTextAccordion(accordion);
-      } else {
-        openTextAccordion(accordion);
-      }
+    const openAccordion = (accordion) => {
+      const content = accordion.querySelector(".text-accordion_content");
+      if (!content) return;
+
+      accordion.classList.add("text-accordion_active");
+      content.style.maxHeight = `${content.scrollHeight}px`;
     };
-  });
 
-  if (textAccordions.length > 0) {
-    openTextAccordion(textAccordions[0]);
-  }
+    const closeAccordion = (accordion) => {
+      const content = accordion.querySelector(".text-accordion_content");
+      if (!content) return;
 
-  // ✉️ Kontaktformulär
-  document
-    .getElementById("contact-form")
-    .addEventListener("submit", async function (e) {
-      e.preventDefault();
+      accordion.classList.remove("text-accordion_active");
+      content.style.maxHeight = null;
+    };
 
-      const form = e.target;
+    accordions.forEach((accordion) => {
+      const content = accordion.querySelector(".text-accordion_content");
+      if (!content) return;
+
+      accordion.addEventListener("click", (event) => {
+        if (event.target.closest(".text-accordion_content")) return;
+
+        const isActive = accordion.classList.contains("text-accordion_active");
+
+        if (isActive) {
+          closeAccordion(accordion);
+        } else {
+          openAccordion(accordion);
+        }
+      });
+    });
+
+    if (accordions.length > 0) {
+      openAccordion(accordions[0]);
+    }
+  };
+
+  const initContactForm = () => {
+    const contactForm = document.getElementById("contact-form");
+
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const form = event.currentTarget;
       const status = document.getElementById("form-status");
       const nameField = form.name;
       const phoneField = form.phone;
@@ -317,26 +481,62 @@ document.addEventListener("DOMContentLoaded", function () {
         status.classList.add("visible");
       }
     });
-  // Mobile menu
-  const toggleBtn = document.getElementById("menu-toggle");
-  const closeBtn = document.getElementById("menu-close");
-  const menu = document.getElementById("mobile-nav");
-  const body = document.body;
+  };
 
-  function openMenu() {
-    menu.classList.add("open");
-    body.classList.add("no-scroll");
-  }
+  const initMobileMenu = () => {
+    const toggleButton = document.getElementById("menu-toggle");
+    const closeButton = document.getElementById("menu-close");
+    const menu = document.getElementById("mobile-nav");
+    const body = document.body;
 
-  function closeMenu() {
-    menu.classList.remove("open");
-    body.classList.remove("no-scroll");
-  }
+    if (!menu) return;
 
-  toggleBtn.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
+    const openMenu = () => {
+      menu.classList.add("open");
+      body.classList.add("no-scroll");
+    };
 
-  document.querySelectorAll(".navigation-link").forEach((link) => {
-    link.addEventListener("click", closeMenu);
+    const closeMenu = () => {
+      menu.classList.remove("open");
+      body.classList.remove("no-scroll");
+    };
+
+    if (toggleButton) {
+      toggleButton.addEventListener("click", openMenu);
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener("click", closeMenu);
+    }
+
+    qsa(".navigation-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  };
+
+  const initSiteFeatures = () => {
+    initCookieConsent();
+    initStatusBanner();
+    initSkipToContent();
+    initStickyHeader();
+    initSmoothScroll();
+    initCopyright();
+    initAccordions();
+    initTextAccordions();
+    initContactForm();
+    initMobileMenu();
+  };
+
+  const onReady = (callback) => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback, { once: true });
+    } else {
+      callback();
+    }
+  };
+
+  onReady(() => {
+    initRevealSystem();
+    initSiteFeatures();
   });
-});
+})();

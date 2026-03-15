@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="author" content="Lucas Rosendahl" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
 
     <!-- Title & SEO -->
     <title>Cookiepolicy - JTT Fastighet & Konsult</title>
@@ -50,6 +63,9 @@
       href="images/favicons/apple-touch-icon.png"
     />
     <link rel="manifest" href="images/favicons/site.webmanifest" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
   </head>
@@ -85,8 +101,12 @@
       </button>
     </div>
 
-    <header class="header" id="header">
-      <div class="header__logo-wrapper">
+    <header class="header" id="header" data-stagger data-stagger-step="90">
+      <div
+        class="header__logo-wrapper"
+        data-reveal="load"
+        data-header-reveal
+      >
         <a href="/" class="header__logo logo__desktop">
           <img
             src="images/logos/logo_large.svg"
@@ -102,7 +122,12 @@
           />
         </a>
       </div>
-      <nav class="navigation" aria-label="Huvudmeny">
+      <nav
+        class="navigation"
+        aria-label="Huvudmeny"
+        data-reveal="load"
+        data-header-reveal
+      >
         <div class="navigation__wrapper">
           <div class="navigation__link-wrapper">
             <a href="/" class="navigation-link fade-up">Tillbaka till startsidan</a>
@@ -115,6 +140,8 @@
         id="menu-toggle"
         aria-controls="mobile-nav"
         aria-expanded="false"
+        data-reveal="load"
+        data-header-reveal
       >
         <div class="menu-icon" id="menu-icon">
           <span></span>
@@ -154,15 +181,15 @@
       </nav>
     </header>
 
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" tabindex="-1" data-page>
       <section id="cookiepolicy" class="container container__cookie-policy">
         <div class="inner-wrapper">
-          <div class="cookie-policy__hero">
+          <div class="cookie-policy__hero" data-reveal="load">
             <h1 class="h1">Cookiepolicy</h1>
             <p>Senast uppdaterad: 10 augusti 2025</p>
           </div>
 
-          <div class="chapters">
+          <div class="chapters" data-reveal>
             <div class="chapter">
               <h2 class="h3">Inledning</h2>
               <p>
@@ -313,8 +340,8 @@
     </main>
 
     <footer class="footer">
-      <div class="inner-wrapper">
-        <div class="footer_logo-copyright">
+      <div class="inner-wrapper" data-stagger data-stagger-base="120" data-stagger-step="100">
+        <div class="footer_logo-copyright" data-reveal>
           <div class="footer__logo">
             <a href="#main-content">
               <img
@@ -325,7 +352,7 @@
           </div>
           <p id="copyright"></p>
         </div>
-        <div class="shortcuts">
+        <div class="shortcuts" data-reveal>
           <h2 class="h3">Genvägar</h2>
           <div class="shortcut-links">
             <a class="shortcut-link" href="/">Om oss</a>
@@ -338,7 +365,7 @@
             <a class="shortcut-link" href="cookiepolicy">Cookiepolicy</a>
           </div>
         </div>
-        <p id="copyright-mobile"></p>
+        <p id="copyright-mobile" data-reveal></p>
       </div>
     </footer>
 
@@ -360,6 +387,6 @@
     </div>
 
     <!-- JS -->
-    <script src="js/script-min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

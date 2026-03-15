@@ -145,15 +145,6 @@ body {
   }
 }
 
-.content-container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.line-break {
-  display: block;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -163,6 +154,12 @@ a:focus,
 button:focus,
 input:focus,
 textarea:focus {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
   outline: 2px solid #004a94;
   outline-offset: 3px;
   border-radius: 4px;
@@ -209,25 +206,6 @@ sup {
 
 .p-margin-bottom {
   margin-bottom: 24px;
-}
-
-.left-aligned {
-  text-align: left;
-}
-
-.right-aligned {
-  text-align: right;
-}
-
-.lock-scroll {
-  overflow: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.lock-scroll ::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  background: transparent;
 }
 
 .no-scroll {
@@ -330,107 +308,6 @@ h1.h1-hero {
   font-weight: 600;
   letter-spacing: -0.064px;
   color: #000000;
-}
-
-.body.body--large {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 29px;
-  letter-spacing: -0.005px;
-  color: #000000;
-}
-
-.body.body--medium {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 21px;
-  letter-spacing: -0.005px;
-  color: #000000;
-}
-
-.body.body--small {
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 21px;
-  letter-spacing: -0.005px;
-  color: #000000;
-}
-
-.subtitle.subtitle--large {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: 0.48px;
-}
-
-.subtitle.subtitle--medium {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.48px;
-}
-
-.subtitle.subtitle--small {
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.48px;
-}
-
-.caption.caption--large {
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: -0.005px;
-}
-
-a.link.link--large {
-  font-size: 1.25rem;
-  font-weight: 500;
-  line-height: 29px;
-  letter-spacing: -0.005px;
-  color: #004a94;
-  text-decoration: none;
-}
-
-a.link.link--medium {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 21px;
-  letter-spacing: -0.005px;
-  color: #004a94;
-  text-decoration: none;
-}
-
-a.link.link--small {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 21px;
-  letter-spacing: -0.005px;
-  color: #004a94;
-  text-decoration: none;
-}
-
-button.btn.btn-large {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.25px;
-  margin: 0;
-}
-
-button.btn.btn-medium {
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.25px;
-  margin: 0;
-}
-
-.number.number-large {
-  font-size: 3.625rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-}
-
-.number.number-small {
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: 2px;
 }
 
 .container__hero {
@@ -1928,6 +1805,123 @@ button.btn.btn-medium {
   background-color: #d9d4d5;
 }
 
+:root {
+  --reveal-duration-fade: 1400ms;
+  --reveal-duration-move: 1800ms;
+  --reveal-ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-distance-base: 6px;
+  --reveal-distance-card: 25px;
+  --reveal-distance-hero: 4px;
+  --reveal-card-scale-start: 0.997;
+  --page-fade-duration: 3000ms;
+  --page-move-duration: 2000ms;
+  --page-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --page-enter-y: 60px;
+  --page-enter-delay: 120ms;
+}
+@media only screen and (max-width: 768px) {
+  :root {
+    --page-enter-y: 0px;
+    --page-fade-duration: 1000ms;
+  }
+}
+
+html:not(.js) [data-reveal],
+html:not(.js) [data-page] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance-base), 0);
+  transition: none;
+}
+
+html.js [data-page] {
+  opacity: 0;
+  transform: translate3d(0, var(--page-enter-y), 0);
+  transition: none;
+}
+
+html.js.is-loaded [data-reveal] {
+  transition: opacity var(--reveal-duration-fade) var(--reveal-ease-standard), transform var(--reveal-duration-move) var(--reveal-ease-standard);
+  transition-delay: var(--reveal-delay, 0ms);
+  backface-visibility: hidden;
+}
+
+html.js.is-loaded [data-page] {
+  opacity: 0;
+  transform: translate3d(0, var(--page-enter-y), 0);
+  transition: opacity var(--page-fade-duration) var(--page-ease), transform var(--page-move-duration) var(--page-ease);
+  transition-delay: var(--page-enter-delay, 0ms);
+}
+
+html.js.is-loaded [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.js.is-loaded [data-page].is-page-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.header [data-header-reveal] {
+  transform: none !important;
+  --reveal-duration-fade: 720ms;
+  --reveal-duration-move: 0ms;
+  --reveal-ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js [data-reveal][data-reveal-card] {
+  transform: translate3d(0, var(--reveal-distance-card), 0) scale(var(--reveal-card-scale-start));
+}
+
+html.js.is-loaded [data-reveal][data-reveal-card].is-revealed {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+html.js [data-reveal][data-reveal-hero] {
+  transform: translate3d(0, var(--reveal-distance-hero), 0);
+}
+
+.header [data-header-reveal],
+.header [data-header-reveal] *[data-reveal] {
+  transform: none !important;
+}
+
+.container__hero {
+  --reveal-duration-fade: 980ms;
+  --reveal-duration-move: 1400ms;
+  --reveal-distance-hero: 3px;
+}
+
+html.js .header [data-header-reveal][data-reveal] {
+  transform: none !important;
+}
+
+html.js .header [data-header-reveal] [data-reveal] {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-page],
+  html.js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html.js [data-page],
+  html.js.is-loaded [data-page],
+  html.js.is-loaded [data-page].is-page-visible {
+    transform: none !important;
+  }
+}
 .accordions {
   display: flex;
   align-items: center;
@@ -1968,7 +1962,6 @@ button.btn.btn-medium {
   gap: 48px;
   position: relative;
   padding: 24px 0;
-  cursor: pointer;
 }
 @media only screen and (max-width: 1300px) {
   .accordions .accordions-wrapper .accordion .accordion_title {
@@ -1979,6 +1972,9 @@ button.btn.btn-medium {
   .accordions .accordions-wrapper .accordion .accordion_title {
     padding: 20px 0;
   }
+}
+.accordions .accordions-wrapper .accordion .accordion_title {
+  cursor: pointer;
 }
 .accordions .accordions-wrapper .accordion .accordion_title h3 {
   color: #000000;
