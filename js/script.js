@@ -1,4 +1,5 @@
 (() => {
+  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
   const html = document.documentElement;
   const prefersReducedMotion =
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -7,6 +8,83 @@
 
   const qsa = (selector, root = document) =>
     Array.from(root.querySelectorAll(selector));
+
+  const getPagePath = () => window.location.pathname;
+
+  const getTextContent = (element) =>
+    element?.textContent?.replace(/\s+/g, " ").trim() ?? "";
+
+  const ensureAnalytics = () => {
+    if (window.gtag) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  };
+
+  const setAnalyticsEnabled = (enabled) => {
+    window[`ga-disable-${GA_MEASUREMENT_ID}`] = !enabled;
+  };
+
+  let analyticsInitialized = false;
+  let analyticsScriptLoading = false;
+
+  const initAnalytics = () => {
+    const consent = localStorage.getItem("cookieConsent");
+    const hasConsent = consent === "accepted";
+
+    setAnalyticsEnabled(hasConsent);
+
+    if (!hasConsent || analyticsInitialized) return;
+
+    ensureAnalytics();
+    analyticsInitialized = true;
+
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID);
+
+    if (analyticsScriptLoading) return;
+
+    analyticsScriptLoading = true;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+  };
+
+  const track = (eventName, params = {}) => {
+    if (localStorage.getItem("cookieConsent") !== "accepted") return;
+
+    initAnalytics();
+
+    if (!window.gtag) return;
+
+    window.gtag("event", eventName, params);
+  };
+
+  const getSectionContext = (element) => {
+    const section = element.closest("section[id], footer[id]");
+    const sectionId = section?.id;
+
+    if (sectionId === "kontakta-oss") return "contact_section";
+    if (sectionId === "vanliga-fragor-och-svar") return "faq";
+    if (sectionId === "hero") return "hero";
+    if (!sectionId) return "unknown";
+
+    return sectionId.replace(/-/g, "_");
+  };
+
+  const getSocialPlatform = (link) => {
+    const href = link.getAttribute("href") ?? "";
+
+    if (href.includes("linkedin.com")) return "linkedin";
+    if (href.includes("facebook.com")) return "facebook";
+    if (href.includes("instagram.com")) return "instagram";
+
+    return "unknown";
+  };
 
   const reveal = (element) => {
     element.classList.add("is-revealed");
@@ -128,6 +206,8 @@
 
     if (!cookieBox || !cookieOverlay) return;
 
+    initAnalytics();
+
     if (!consent) {
       setTimeout(() => {
         cookieBox.classList.add("visible");
@@ -156,6 +236,12 @@
 
     const handleConsent = (choice) => {
       localStorage.setItem("cookieConsent", choice);
+      setAnalyticsEnabled(choice === "accepted");
+
+      if (choice === "accepted") {
+        initAnalytics();
+      }
+
       hideCookieUI();
     };
 
@@ -175,6 +261,7 @@
       changeConsentButton.addEventListener("click", (event) => {
         event.preventDefault();
         localStorage.removeItem("cookieConsent");
+        setAnalyticsEnabled(false);
 
         cookieBox.style.display = "block";
         cookieOverlay.classList.remove("hidden");
@@ -300,6 +387,135 @@
     }
   };
 
+  const initCtaTracking = () => {
+    qsa("[data-cta-location]").forEach((button) => {
+      button.addEventListener("click", () => {
+        track("cta_click", {
+          cta_name: button.dataset.ctaName ?? "kontakta_oss",
+          cta_location: button.dataset.ctaLocation ?? "unknown",
+          page_path: getPagePath(),
+        });
+      });
+    });
+  };
+
+  const initNavigationTracking = () => {
+    const desktopLinks = qsa(".navigation .navigation-link");
+    const mobileLinks = qsa(".navigation__mobile .navigation-link");
+
+    desktopLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        track("nav_click", {
+          link_text: getTextContent(link),
+          link_target: link.getAttribute("href") ?? "",
+          nav_type: "desktop",
+          page_path: getPagePath(),
+        });
+      });
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        track("nav_click", {
+          link_text: getTextContent(link),
+          link_target: link.getAttribute("href") ?? "",
+          nav_type: "mobile",
+          page_path: getPagePath(),
+        });
+      });
+    });
+  };
+
+  const initContactLinkTracking = () => {
+    qsa('a[href^="tel:"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        track("phone_click", {
+          phone_number: link.getAttribute("href")?.replace("tel:", "") ?? "",
+          click_location: getSectionContext(link),
+          page_path: getPagePath(),
+        });
+      });
+    });
+
+    qsa('a[href^="mailto:"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        track("email_click", {
+          email_address:
+            link.getAttribute("href")?.replace("mailto:", "") ?? "",
+          click_location: getSectionContext(link),
+          page_path: getPagePath(),
+        });
+      });
+    });
+
+    qsa('a[href*="google.com/maps"], a[href*="maps/search"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        track("map_click", {
+          location_name: getTextContent(link),
+          page_path: getPagePath(),
+        });
+      });
+    });
+
+    qsa('a[href*="linkedin.com"], a[href*="facebook.com"], a[href*="instagram.com"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        track("social_click", {
+          social_platform: getSocialPlatform(link),
+          page_path: getPagePath(),
+        });
+      });
+    });
+  };
+
+  const initContactSectionViewTracking = () => {
+    const contactSection = document.getElementById("kontakta-oss");
+
+    if (!contactSection || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        track("contact_section_view", {
+          page_path: getPagePath(),
+        });
+
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.35,
+    });
+
+    observer.observe(contactSection);
+  };
+
+  const initScrollDepthTracking = () => {
+    const thresholds = [25, 50, 75, 90];
+    const trackedDepths = new Set();
+
+    const handleScroll = () => {
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollHeight <= 0) return;
+
+      const scrollPercent = Math.round((window.scrollY / scrollHeight) * 100);
+
+      thresholds.forEach((threshold) => {
+        if (scrollPercent < threshold || trackedDepths.has(threshold)) return;
+
+        trackedDepths.add(threshold);
+        track("scroll_depth", {
+          percent: threshold,
+          page_path: getPagePath(),
+        });
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+  };
+
   const initAccordions = () => {
     const accordions = qsa(".accordion");
     const accordionImages = document.querySelector(".accordion_images");
@@ -346,6 +562,13 @@
         if (!isActive) {
           openAccordion(accordion);
           activateImages(index);
+          track("service_accordion_open", {
+            service_name:
+              getTextContent(trigger.querySelector(".accordion_title-text")) ||
+              getTextContent(trigger),
+            service_index: index + 1,
+            page_path: getPagePath(),
+          });
         }
       });
     });
@@ -381,7 +604,7 @@
       content.style.maxHeight = null;
     };
 
-    accordions.forEach((accordion) => {
+    accordions.forEach((accordion, index) => {
       const trigger = accordion.querySelector(".text-accordion_title");
       if (!trigger) return;
 
@@ -392,6 +615,14 @@
           closeAccordion(accordion);
         } else {
           openAccordion(accordion);
+          track("faq_open", {
+            question:
+              getTextContent(
+                trigger.querySelector(".text-accordion_title-text"),
+              ) || getTextContent(trigger),
+            question_index: index + 1,
+            page_path: getPagePath(),
+          });
         }
       });
     });
@@ -405,6 +636,21 @@
     const contactForm = document.getElementById("contact-form");
 
     if (!contactForm) return;
+
+    let hasTrackedFormStart = false;
+    const formName = "contact_form";
+
+    const trackFormStart = () => {
+      if (hasTrackedFormStart) return;
+
+      hasTrackedFormStart = true;
+      track("form_start", {
+        form_name: formName,
+      });
+    };
+
+    contactForm.addEventListener("focusin", trackFormStart);
+    contactForm.addEventListener("input", trackFormStart);
 
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -432,6 +678,10 @@
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!nameRegex.test(name)) {
+        track("form_submit_error", {
+          form_name: formName,
+          error_type: "validation",
+        });
         status.textContent =
           "Namnet får endast innehålla bokstäver, bindestreck och mellanslag.";
         nameField.classList.add("invalid");
@@ -441,6 +691,10 @@
       }
 
       if (phone && !phoneRegex.test(phone)) {
+        track("form_submit_error", {
+          form_name: formName,
+          error_type: "validation",
+        });
         status.textContent =
           "Telefonnumret får endast innehålla siffror, plus och mellanslag.";
         phoneField.classList.add("invalid");
@@ -450,6 +704,10 @@
       }
 
       if (!emailRegex.test(email)) {
+        track("form_submit_error", {
+          form_name: formName,
+          error_type: "validation",
+        });
         status.textContent =
           "Fyll i en giltig e-postadress enligt exempelformatet namn@domän.se.";
         emailField.classList.add("invalid");
@@ -459,6 +717,10 @@
       }
 
       if (message.length < 5) {
+        track("form_submit_error", {
+          form_name: formName,
+          error_type: "validation",
+        });
         status.textContent = "Meddelandet måste innehålla minst 5 tecken.";
         messageField.classList.add("invalid");
         status.style.color = "#e84c4c";
@@ -469,6 +731,10 @@
       const data = new FormData(form);
       const action = "https://formspree.io/f/mqaldrgz";
 
+      track("form_submit", {
+        form_name: formName,
+      });
+
       try {
         const response = await fetch(action, {
           method: "POST",
@@ -477,17 +743,28 @@
         });
 
         if (response.ok) {
+          track("form_submit_success", {
+            form_name: formName,
+          });
           status.textContent =
             "Tack! Ditt meddelande har skickats, vi återkommer inom 24 timmar.";
           status.style.color = "#3aa66c";
           status.classList.add("visible");
           form.reset();
         } else {
+          track("form_submit_error", {
+            form_name: formName,
+            error_type: "request_failed",
+          });
           status.textContent = "Något gick fel. Försök igen.";
           status.style.color = "#e84c4c";
           status.classList.add("visible");
         }
       } catch (error) {
+        track("form_submit_error", {
+          form_name: formName,
+          error_type: "network",
+        });
         status.textContent =
           "Kunde inte ansluta till servern. Försök igen om en stund.";
         status.style.color = "#e84c4c";
@@ -526,6 +803,9 @@
       menu.classList.add("open");
       body.classList.add("no-scroll");
       toggleButton?.setAttribute("aria-expanded", "true");
+      track("mobile_menu_open", {
+        page_path: getPagePath(),
+      });
     };
 
     const closeMenu = () => {
@@ -565,12 +845,18 @@
   };
 
   const initSiteFeatures = () => {
+    initAnalytics();
     initCookieConsent();
     initStatusBanner();
     initSkipToContent();
     initStickyHeader();
     initSmoothScroll();
     initCopyright();
+    initCtaTracking();
+    initNavigationTracking();
+    initContactLinkTracking();
+    initContactSectionViewTracking();
+    initScrollDepthTracking();
     initAccordions();
     initTextAccordions();
     initContactForm();
