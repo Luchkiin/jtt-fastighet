@@ -1,5 +1,5 @@
 (() => {
-  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+  const GA_MEASUREMENT_ID = "G-W0M7TW78XY";
   const html = document.documentElement;
   const prefersReducedMotion =
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
