@@ -988,31 +988,31 @@ h1.h1-hero {
     line-height: 21px;
   }
 }
-.container__contact .inner-wrapper .contact-info .socail-media-info h4 {
+.container__contact .inner-wrapper .contact-info .social-media-info h4 {
   color: #ffffff;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 768px) {
-  .container__contact .inner-wrapper .contact-info .socail-media-info h4 {
+  .container__contact .inner-wrapper .contact-info .social-media-info h4 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 16px;
   }
 }
-.container__contact .inner-wrapper .contact-info .socail-media-info .social-media-icon {
+.container__contact .inner-wrapper .contact-info .social-media-info .social-media-icon {
   display: flex;
   height: 40px;
 }
-.container__contact .inner-wrapper .contact-info .socail-media-info .social-media-icon a:focus-visible {
+.container__contact .inner-wrapper .contact-info .social-media-info .social-media-icon a:focus-visible {
   border-radius: 9px;
   overflow: hidden;
 }
 @media only screen and (max-width: 768px) {
-  .container__contact .inner-wrapper .contact-info .socail-media-info .social-media-icon {
+  .container__contact .inner-wrapper .contact-info .social-media-info .social-media-icon {
     width: 36px;
     height: 36px;
   }
-  .container__contact .inner-wrapper .contact-info .socail-media-info .social-media-icon svg {
+  .container__contact .inner-wrapper .contact-info .social-media-info .social-media-icon svg {
     width: 36px;
     height: 36px;
   }
