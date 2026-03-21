@@ -1,0 +1,85 @@
+@use "../abstracts/" as *;
+
+.not-found {
+  min-height: calc(100vh - 101px);
+  display: flex;
+  align-items: center;
+
+  @include for-tablet() {
+    min-height: calc(100vh - 85px);
+        padding: 0 $spacing-s;
+  }
+
+  @include for-mobile() {
+    min-height: calc(100vh - 56px);
+        padding: 0 $spacing-xs;
+  }
+
+  .not-found__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xxxl;
+    flex: 1 1 auto;
+    align-items: stretch;
+
+    @include for-tablet() {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: $spacing-l;
+      min-height: auto;
+      padding-top: $spacing-xl;
+      padding-bottom: $spacing-xl;
+    }
+
+    @include for-mobile() {
+      padding-top: $spacing-l;
+      padding-bottom: $spacing-l;
+      gap: $spacing-s;
+    }
+  }
+
+  .not-found__left {
+    max-width: 700px;
+    height: 100%;
+
+    .section-label {
+      margin-bottom: $spacing-xxs;
+    }
+
+    .page-title {
+      margin-bottom: $spacing-s;
+
+      @include for-tablet() {
+        margin-bottom: $spacing-xs;
+      }
+
+      @include for-mobile() {
+        line-height: normal;
+      }
+    }
+
+    .section-lead {
+      color: $black;
+      @include for-tablet() {
+        font-size: $fontSize-16;
+        font-weight: $regular-weight;
+        line-height: $lineHeight-21;
+        letter-spacing: $letterSpacing--005;
+      }
+    }
+  }
+
+  .not-found__right {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+
+    @include for-tablet() {
+      justify-content: flex-start;
+    }
+
+    button {
+      margin-top: auto;
+    }
+  }
+}
