@@ -87,108 +87,114 @@
         </svg>
       </button>
     </div>
-    <header class="header" id="header" data-stagger data-stagger-step="90">
-      <div class="header__logo-wrapper" data-reveal="load" data-header-reveal>
-        <a href="/" class="header__logo logo__desktop">
-          <img
-            src="images/logos/logo_large.svg"
-            class="header__logo--image"
-            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
-          />
-        </a>
-        <a class="header__logo logo__mobile" href="/">
-          <img
-            class="header__logo--image"
-            src="images/logos/logo_small.svg"
-            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
-          />
-        </a>
+    <header class="header" id="header">
+      <div class="header__inner" data-stagger data-stagger-step="90">
+        <div class="header__logo-wrapper" data-reveal="load" data-header-reveal>
+          <a href="/" class="header__logo logo__desktop">
+            <img
+              src="images/logos/logo_large.svg"
+              class="header__logo--image"
+              alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+            />
+          </a>
+          <a class="header__logo logo__mobile" href="/">
+            <img
+              class="header__logo--image"
+              src="images/logos/logo_small.svg"
+              alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+            />
+          </a>
+        </div>
+        <nav
+          class="navigation"
+          aria-label="Huvudmeny"
+          data-reveal="load"
+          data-header-reveal
+        >
+          <div class="navigation__wrapper">
+            <div class="navigation__link-wrapper">
+              <a href="#om-oss" class="navigation-link fade-up">Om oss</a>
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#vara-tjanster" class="navigation-link fade-up"
+                >Våra tjänster</a
+              >
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#varfor-valja-oss" class="navigation-link fade-up"
+                >Varför välja oss?</a
+              >
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#kontakta-oss" class="navigation-link fade-up"
+                >Kontakta oss</a
+              >
+            </div>
+          </div>
+        </nav>
+        <!-- Hamburger / Close icon -->
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+          data-reveal="load"
+          data-header-reveal
+        >
+          <div class="menu-icon" id="menu-icon">
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <!-- Mobile Navigation -->
+        <nav
+          class="navigation__mobile"
+          id="mobile-nav"
+          aria-label="Mobilemny, huvudmeny"
+        >
+          <div class="mobile-menu__header">
+            <img
+              src="images/logos/logo_small.svg"
+              alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
+              class="mobile-menu__logo"
+            />
+            <button
+              class="close-button"
+              id="menu-close"
+              aria-label="Stäng meny"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.4 22.6538L9.34619 21.6L14.9462 16L9.34619 10.4L10.4 9.34619L16 14.9462L21.6 9.34619L22.6538 10.4L17.0538 16L22.6538 21.6L21.6 22.6538L16 17.0538L10.4 22.6538Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="navigation__wrapper">
+            <div class="navigation__link-wrapper">
+              <a href="#om-oss" class="navigation-link">Om oss</a>
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#vara-tjanster" class="navigation-link">Våra tjänster</a>
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#varfor-valja-oss" class="navigation-link"
+                >Varför välja oss?</a
+              >
+            </div>
+            <div class="navigation__link-wrapper">
+              <a href="#kontakta-oss" class="navigation-link">Kontakta oss</a>
+            </div>
+          </div>
+        </nav>
       </div>
-      <nav
-        class="navigation"
-        aria-label="Huvudmeny"
-        data-reveal="load"
-        data-header-reveal
-      >
-        <div class="navigation__wrapper">
-          <div class="navigation__link-wrapper">
-            <a href="#om-oss" class="navigation-link fade-up">Om oss</a>
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#vara-tjanster" class="navigation-link fade-up"
-              >Våra tjänster</a
-            >
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#varfor-valja-oss" class="navigation-link fade-up"
-              >Varför välja oss?</a
-            >
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#kontakta-oss" class="navigation-link fade-up"
-              >Kontakta oss</a
-            >
-          </div>
-        </div>
-      </nav>
-      <!-- Hamburger / Close icon -->
-      <button
-        class="menu-toggle"
-        id="menu-toggle"
-        aria-controls="mobile-nav"
-        aria-expanded="false"
-        data-reveal="load"
-        data-header-reveal
-      >
-        <div class="menu-icon" id="menu-icon">
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <!-- Mobile Navigation -->
-      <nav
-        class="navigation__mobile"
-        id="mobile-nav"
-        aria-label="Mobilemny, huvudmeny"
-      >
-        <div class="mobile-menu__header">
-          <img
-            src="images/logos/logo_small.svg"
-            alt="Logotyp för JTT Fastighet & Konsult. Består av stiliserad text med företagsnamnet i blå, vit och röd färg"
-            class="mobile-menu__logo"
-          />
-          <button class="close-button" id="menu-close" aria-label="Stäng meny">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.4 22.6538L9.34619 21.6L14.9462 16L9.34619 10.4L10.4 9.34619L16 14.9462L21.6 9.34619L22.6538 10.4L17.0538 16L22.6538 21.6L21.6 22.6538L16 17.0538L10.4 22.6538Z"
-                fill="black"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="navigation__wrapper">
-          <div class="navigation__link-wrapper">
-            <a href="#om-oss" class="navigation-link">Om oss</a>
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#vara-tjanster" class="navigation-link">Våra tjänster</a>
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#varfor-valja-oss" class="navigation-link"
-              >Varför välja oss?</a
-            >
-          </div>
-          <div class="navigation__link-wrapper">
-            <a href="#kontakta-oss" class="navigation-link">Kontakta oss</a>
-          </div>
-        </div>
-      </nav>
     </header>
     <main id="main-content" tabindex="-1" data-page>
       <section id="hero" class="container container__hero">

@@ -1,12 +1,7 @@
 @use "../abstracts/" as *;
 
 .header {
-  padding: 0 $spacing-xl;
   height: 101px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 80px;
   z-index: 999;
   position: sticky;
   top: 0;
@@ -16,47 +11,69 @@
     padding 0.5s ease,
     box-shadow 0.5s ease;
   background-color: $white;
+
   @include for-tablet() {
-    padding: $spacing-xs $spacing-s;
     height: 85px;
   }
+
   @include for-mobile() {
-    padding: $spacing-xs;
     height: $spacing-xxl;
   }
+
   &.scrolled {
-    padding: 0 $spacing-xl;
     height: 85px;
     position: fixed;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    @include for-tablet() {
-      padding: 0 $spacing-s;
-    }
+
     @include for-mobile() {
       height: 56px;
     }
+
     .menu-toggle {
       top: 12px;
     }
   }
 }
 
+.header__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 $spacing-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+
+  @include for-tablet() {
+    padding: $spacing-xs $spacing-s;
+  }
+
+  @include for-mobile() {
+    padding: $spacing-xs;
+  }
+}
+
 .header__logo-wrapper {
   transition: $transition-250;
   flex-shrink: 0;
+
   @include hover-supported() {
     opacity: 0.75;
   }
+
   .logo__desktop {
     @include for-mobile() {
       display: none;
     }
   }
+
   .logo__mobile {
     display: none;
+
     @include for-mobile() {
       display: block;
     }
