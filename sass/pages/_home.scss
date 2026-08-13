@@ -70,6 +70,9 @@
     }
     .text {
       padding-bottom: $spacing-xl;
+      p {
+        margin-bottom: $spacing-xs;
+      }
       @include for-hero-laptop() {
         padding-bottom: $spacing-m;
       }

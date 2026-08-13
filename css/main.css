@@ -392,6 +392,9 @@ h1.h1-hero {
 .container__hero .copy-cta .text {
   padding-bottom: 48px;
 }
+.container__hero .copy-cta .text p {
+  margin-bottom: 16px;
+}
 @media only screen and (max-width: 1439px) {
   .container__hero .copy-cta .text {
     padding-bottom: 32px;
