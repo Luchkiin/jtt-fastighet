@@ -86,6 +86,16 @@
         will-change: max-height;
         transition: $transition-500;
         opacity: 0;
+        h4 {
+          margin-bottom: $spacing-xs;
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            margin-bottom: $spacing-xxs;
+          }
+          @include for-mobile() {
+            font-size: $fontSize-14;
+          }
+        }
       }
       &:first-child {
         .accordion_title {

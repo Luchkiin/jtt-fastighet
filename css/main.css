@@ -2157,6 +2157,20 @@ html.js .header [data-header-reveal] [data-reveal] {
   transition: all 500ms ease;
   opacity: 0;
 }
+.accordions .accordions-wrapper .accordion .accordion_content h4 {
+  margin-bottom: 16px;
+}
+@media only screen and (max-width: 1024px) {
+  .accordions .accordions-wrapper .accordion .accordion_content h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .accordions .accordions-wrapper .accordion .accordion_content h4 {
+    font-size: 0.875rem;
+  }
+}
 .accordions .accordions-wrapper .accordion:first-child .accordion_title {
   padding-top: 0;
 }
