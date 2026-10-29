@@ -391,6 +391,157 @@
   }
 }
 
+// Partners
+.container__partners {
+  @include for-tablet() {
+    padding-top: 0;
+  }
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    @include for-mobile() {
+      gap: $spacing-m;
+    }
+    .title-text-wrapper {
+      display: flex;
+      align-items: end;
+      gap: $spacing-xxxl;
+      justify-content: space-between;
+      width: 100%;
+      @include for-desktop() {
+        flex-direction: column;
+        align-items: start;
+        gap: $spacing-m;
+      }
+      @include for-mobile() {
+        gap: $spacing-s;
+      }
+      .title {
+        max-width: 600px;
+        @include for-mobile() {
+          width: 100%;
+        }
+      }
+      .text {
+        max-width: 680px;
+        @include for-desktop() {
+          max-width: 750px;
+        }
+        @include for-small-tablet() {
+          width: 100%;
+        }
+        p {
+          color: $neutral-grey-950;
+          @include for-tablet() {
+            font-size: $fontSize-16;
+            font-weight: $regular-weight;
+            line-height: $lineHeight-21;
+            letter-spacing: $letterSpacing--005;
+          }
+        }
+      }
+    }
+    .partner-cards {
+      .partner-card {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: $spacing-xxs;
+        padding: $spacing-xxs;
+        border: 1px solid $neutral-grey-300;
+        border-radius: $border-radius-xl;
+        @include for-tablet() {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .partner-card__logos {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: $spacing-s;
+          min-height: 320px;
+          padding: $spacing-m;
+          background-color: $bg-light;
+          border-radius: $border-radius-m;
+          @include for-tablet() {
+            min-height: 220px;
+          }
+          @include for-mobile() {
+            min-height: 160px;
+            gap: $spacing-xs;
+            padding: $spacing-s;
+          }
+          .partner-card__logo--jtt {
+            height: 66px;
+            width: auto;
+            @include for-mobile() {
+              height: 48px;
+            }
+          }
+          .partner-card__logo--partner {
+            height: 40px;
+            width: auto;
+            @include for-mobile() {
+              height: 30px;
+            }
+          }
+          .partner-card__divider {
+            font-size: $fontSize-26;
+            font-weight: $regular-weight;
+            color: $neutral-grey-700;
+            @include for-mobile() {
+              font-size: $fontSize-20;
+            }
+          }
+        }
+        .partner-card__content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+          gap: $spacing-xs;
+          padding: $spacing-xl;
+          @include for-tablet() {
+            padding: $spacing-m;
+          }
+          @include for-mobile() {
+            padding: $spacing-s $spacing-xs $spacing-xs;
+          }
+          h3 {
+            @include for-mobile() {
+              font-size: $fontSize-20;
+            }
+          }
+          p {
+            max-width: 600px;
+            color: $neutral-grey-950;
+            @include for-tablet() {
+              font-size: $fontSize-16;
+              font-weight: $regular-weight;
+              line-height: $lineHeight-21;
+              letter-spacing: $letterSpacing--005;
+            }
+            @include for-mobile() {
+              font-size: $fontSize-14;
+            }
+          }
+          .button-primary {
+            margin-top: $spacing-xs;
+          }
+        }
+        .partner-card__badge {
+          padding: 4px 12px;
+          font-size: $fontSize-14;
+          font-weight: $semiBold-weight;
+          letter-spacing: $letterSpacing-025;
+          color: $primary-red-600;
+          background-color: $primary-red-50;
+          border-radius: $border-radius-button-l;
+        }
+      }
+    }
+  }
+}
+
 // FAQ
 .container__faq {
   background-color: $bg-light;
