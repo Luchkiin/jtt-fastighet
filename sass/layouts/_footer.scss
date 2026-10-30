@@ -64,30 +64,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: $spacing-xxxl;
+      row-gap: 20px;
       @include for-mobile() {
         grid-template-columns: 1fr;
       }
       .shortcut-link {
-        padding: 10px 0;
         position: relative;
-        &:nth-child(1) {
-          padding-top: 0;
-        }
-        &:nth-child(2) {
-          padding-top: 0;
-          @include for-mobile() {
-            padding-top: 10px;
-          }
-        }
-        &:nth-child(5) {
-          padding-bottom: 0;
-          @include for-mobile() {
-            padding-bottom: 10px;
-          }
-        }
-        &:nth-child(6) {
-          padding-bottom: 0;
-        }
       }
     }
   }
